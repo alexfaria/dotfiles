@@ -1,4 +1,3 @@
-set shell=bash
 " Vundle {{{
 "
 set nocompatible              " be iMproved, required
@@ -17,6 +16,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Yggdroot/indentLine'
 Plugin 'groenewege/vim-less'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
@@ -29,6 +29,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'altercation/vim-colors-solarized'
 " Plugin 'AutoClose'
 " Plugin 'klen/python-mode'
 
@@ -46,7 +47,10 @@ filetype plugin indent on    " required
 " Settings {{{
 syntax enable   " enable syntax highlighting
 colorscheme Monokai
-colorscheme badwolf
+"colorscheme badwolf
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 set number      " show line numbers
 set showcmd     " show command in bottom bar
 set wildmenu    " visual autocomplete for command menu
@@ -64,7 +68,8 @@ set expandtab   " expand tabs into spaces
 set shiftwidth=4
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
-let g:indentLine_enabled = 0
+let g:indentLine_char = '·'
+"let g:indentLine_char = '￤'
 " }}}
 "
 " Bindings {{{
