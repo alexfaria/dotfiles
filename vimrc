@@ -78,6 +78,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>s :mksession!<CR>   " save session
+nnoremap <leader>b gg=G
 
 " nnoremap <leader>t :NERDTreeToggle<CR>
 let g:SuperTabDefaultCompletionType = "<c-n>"
