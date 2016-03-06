@@ -65,11 +65,11 @@ set directory=~/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 " toggle invisible characters
-" set invlist
-" set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-" highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
-" set showbreak=↪
-" nmap <leader>l :set list!<cr>
+set invlist
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
+set showbreak=↪
+nmap <leader>o :set list!<cr>
 
 
 let mapleader=","
@@ -126,6 +126,7 @@ autocmd InsertLeave * :set relativenumber
 
 " plugin settings
 let g:indentLine_char = '·'
+let g:indentLine_char = '▸'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
