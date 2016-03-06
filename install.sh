@@ -30,5 +30,7 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
-# Install vim plugins
+echo "Make vim backup folder"
+mkdir ~/.vim./.tmp
+echo "Install vim plugins"
 vim +PluginInstall +qall
