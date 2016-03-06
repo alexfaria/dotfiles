@@ -35,9 +35,9 @@ colorscheme monokai
 set so=7
 set ts=4        " set tabs to have 4 spaces
 set hidden      " dont close buffers, only hide
-set ttyfast                   " we have a fast terminal
-set showcmd                     " show command in bottom bar
-set wildmenu                    " visual autocomplete for command menu
+set ttyfast                  " we have a fast terminal
+set showcmd                  " show command in bottom bar
+set wildmenu                 " visual autocomplete for command menu
 set hlsearch    " highlight matches
 set smartcase
 set infercase
@@ -48,16 +48,20 @@ set expandtab   " expand tabs into spaces
 set ignorecase
 set cursorline
 set autoindent  " indent when moving to the next line while writing code
-set noerrorbells              " No error bells please
+set noerrorbells                " No error bells please
+set timeoutlen=500              " keypress timeout
 set shiftwidth=4
 set laststatus=2
-set softtabstop=4   " number of spaces in tab editing
+set softtabstop=4               " number of spaces in tab editing
+set clipboard=unnamed           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
 let python_highlight_all = 1
 
 "  backup
 set backup
-set backupdir=~/.vim/backup
+set backupdir=~/.vim/.tmp
+set directory=~/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 let mapleader=","
