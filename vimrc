@@ -64,6 +64,14 @@ set backupdir=~/.vim/.tmp
 set directory=~/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
+" toggle invisible characters
+" set invlist
+" set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+" highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
+" set showbreak=↪
+" nmap <leader>l :set list!<cr>
+
+
 let mapleader=","
 set pastetoggle=<F2>
 
