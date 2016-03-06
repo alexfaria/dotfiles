@@ -117,6 +117,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 
 " Relative Number Line
+set nu
 set relativenumber
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber

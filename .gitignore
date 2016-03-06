@@ -1,4 +1,4 @@
 vim/.tmp
 vim/.netrwhist
 vim/bundle/*
-!vim/bundle/Vundle.vim/
+!vim/bundle/Vundle.vim
