@@ -54,13 +54,14 @@ set shiftwidth=4
 set laststatus=2
 " set scrolloff=6               " keep at least 5 lines above/below
 " set sidescrolloff=6           " keep at least 5 lines left/right
+set hidden
 set so=7
 let python_highlight_all = 1
 let g:indentLine_char = '·'
 
 "  backup
 set backup
-set backupdir=~/.vim_backup
+set backupdir=~/.vim/backup
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 let mapleader=","
