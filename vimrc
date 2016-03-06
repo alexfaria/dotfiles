@@ -54,7 +54,7 @@ set shiftwidth=4
 set laststatus=2
 " set scrolloff=6               " keep at least 5 lines above/below
 " set sidescrolloff=6           " keep at least 5 lines left/right
-set hidden
+set hidden      " dont close buffers, only hide
 set so=7
 let python_highlight_all = 1
 let g:indentLine_char = '·'
@@ -92,9 +92,10 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>s :mksession!<CR>   " save session
-" nnoremap <leader>b gg=G
+nnoremap <leader><c-b> gg=G
 
 nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
@@ -104,7 +105,6 @@ nmap <leader>bl :ls<CR>
 
 nmap <leader>fw :FixWhitespace<cr>
 
-" nnoremap <leader>t :NERDTreeToggle<CR>
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Relative Number Line
@@ -122,10 +122,10 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " autoreload vimrc
-augroup reload_vimrc " {
+augroup reload_vimrc
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }"
+augroup END
 
 
 " Netrw Settings
