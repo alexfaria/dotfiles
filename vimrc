@@ -10,7 +10,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'groenewege/vim-less'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
@@ -33,7 +33,6 @@ syntax enable   " enable syntax highlighting
 colorscheme monokai
 
 set so=7
-set ts=4        " set tabs to have 4 spaces
 set hidden      " dont close buffers, only hide
 set ttyfast                  " we have a fast terminal
 set showcmd                  " show command in bottom bar
@@ -45,14 +44,15 @@ set autochdir
 set showmatch   " highlight matching [{()}]
 set incsearch   " search as chars are entered
 set expandtab   " expand tabs into spaces
+set softtabstop=4               " number of spaces in tab editing
+set ts=4   " set tabs to have 4 spaces
+set shiftwidth=4
 set ignorecase
 set cursorline
 set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
-set shiftwidth=4
 set laststatus=2
-set softtabstop=4               " number of spaces in tab editing
 set clipboard=unnamed           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
@@ -63,14 +63,6 @@ set backup
 set backupdir=~/.vim/.tmp
 set directory=~/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
-
-" toggle invisible characters
-set invlist
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
-set showbreak=↪
-nmap <leader>o :set list!<cr>
-
 
 let mapleader=","
 set pastetoggle=<F2>
@@ -125,8 +117,8 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 " plugin settings
-let g:indentLine_char = '·'
-let g:indentLine_char = '▸'
+" let g:indentLine_char = '·'
+" let g:indentLine_char = '▸'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
