@@ -5,7 +5,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="honukai"
+# ZSH_THEME="honukai"
 ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -91,7 +91,7 @@ alias termrc="vim ~/.config/terminator/config"
 alias vims="vim -S"
 
 alias sv="source ~/.zshrc"
-alias bootwindows="sudo grub-reboot "Windows Boot Manager (on /dev/sdb2)""
+# alias bootwindows="sudo grub-reboot "Windows Boot Manager (on /dev/sdb2)""
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
