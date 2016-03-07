@@ -64,6 +64,14 @@ set backupdir=~/.vim/.tmp
 set directory=~/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
+" toggle invisible characters
+set invlist
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
+set showbreak=↪
+nmap <leader>o :set list!<cr>
+
+
 let mapleader=","
 set pastetoggle=<F2>
 
@@ -109,6 +117,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 
 " Relative Number Line
+set nu
 set relativenumber
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
@@ -117,10 +126,22 @@ autocmd InsertLeave * :set relativenumber
 
 " plugin settings
 let g:indentLine_char = '·'
+let g:indentLine_char = '▸'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" syntastic 'default' settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
 
 " autoreload vimrc
 augroup reload_vimrc
