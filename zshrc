@@ -82,8 +82,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ..="cd .."
-alias ...="cd ../.."
+alias :q="exit"
 
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
