@@ -90,6 +90,7 @@ alias termrc="vim ~/.config/terminator/config"
 alias vims="vim -S"
 
 alias sv="source ~/.zshrc"
+alias bootwindows="sudo grub-reboot "Windows Boot Manager (on /dev/sdb2)""
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
