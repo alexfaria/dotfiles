@@ -7,7 +7,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'freitass/todo.txt-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -70,12 +69,12 @@ set directory=$HOME/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 let mapleader=","
+let maplocalleader="\\"
 set pastetoggle=<F2>
 
 map <Up> gk
 map <Down> gj
 map <silent> <leader>t :call ToggleVExplorer()<CR>
-map <leader>td :e $HOME/Documents/docs/todo.txt<CR>
 
 nmap <leader>w :w!<cr>
 inoremap <leader>w <Esc>:w!<CR>
@@ -111,7 +110,7 @@ inoremap <C-s> <Esc>:w<CR>i
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>s :mksession!<CR>   " save session
+nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
 nnoremap <leader><space> :nohlsearch<CR>
 
