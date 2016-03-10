@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'freitass/todo.txt-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -64,8 +65,8 @@ let python_highlight_all = 1
 
 "  backup
 set backup
-set backupdir=~/.vim/.tmp
-set directory=~/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
+set backupdir=$HOME/.vim/.tmp
+set directory=$HOME/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 let mapleader=","
@@ -73,8 +74,8 @@ set pastetoggle=<F2>
 
 map <Up> gk
 map <Down> gj
-" map <silent> <C-E> :call ToggleVExplorer()<CR>
 map <silent> <leader>t :call ToggleVExplorer()<CR>
+map <leader>td :e $HOME/Documents/docs/todo.txt<CR>
 
 nmap <leader>w :w!<cr>
 inoremap <leader>w <Esc>:w!<CR>
@@ -108,7 +109,7 @@ nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
 
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>s :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
