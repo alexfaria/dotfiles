@@ -11,7 +11,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 Plugin 'groenewege/vim-less'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
@@ -33,8 +33,10 @@ filetype plugin indent on    " required
 syntax enable   " enable syntax highlighting
 colorscheme monokai
 
+
 set so=7
 set hidden      " dont close buffers, only hide
+set mouse=a     " enable mouse
 set ttyfast                  " we have a fast terminal
 set showcmd                  " show command in bottom bar
 set wildmenu                 " visual autocomplete for command menu
@@ -54,6 +56,7 @@ set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
+set statusline+=%{fugitive#statusline()}
 set clipboard=unnamed           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
@@ -70,10 +73,11 @@ set pastetoggle=<F2>
 
 map <Up> gk
 map <Down> gj
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+" map <silent> <C-E> :call ToggleVExplorer()<CR>
 map <silent> <leader>t :call ToggleVExplorer()<CR>
 
 nmap <leader>w :w!<cr>
+inoremap <leader>w <Esc>:w!<CR>
 nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
@@ -81,6 +85,8 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 nmap <leader>fw :FixWhitespace<cr>
 
+noremap < >
+noremap > <
 nnoremap j gj
 nnoremap k gk
 

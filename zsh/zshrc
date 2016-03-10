@@ -2,7 +2,9 @@
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 ZSH_CUSTOM=$DOTFILES/zsh/custom
-ZSH_THEME="honukai"
+# ZSH_THEME="honukai"
+# ZSH_THEME="spaceship"
+ZSH_THEME="bullet-train"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -10,7 +12,7 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git extract sudo zsh-syntax-highlighting)
+plugins=(git extract sudo virtualenv zsh-syntax-highlighting)
 
 # User configuration
 
@@ -38,13 +40,19 @@ source $ZSH/oh-my-zsh.sh
 alias :q="exit"
 alias dot="cd $DOTFILES"
 
-alias tmux="tmux -2"
-alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
 alias vims="vim -S"
+alias tmux="tmux -2"
+alias zshrc="vim $DOTFILES/zsh/zshrc"
+alias vimrc="vim $DOTFILES/vimrc"
+alias tmuxrc="vim $DOTFILES/tmux/tmux.conf"
+alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
 
-alias sv="source ~/.zshrc"
+alias sv="source $DOTFILES/zsh/zshrc"
 # alias bootwindows="sudo grub-reboot "Windows Boot Manager (on /dev/sdb2)""
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### VirtualEnvWrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
