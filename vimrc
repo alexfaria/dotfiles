@@ -11,7 +11,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'gregsexton/MatchTag'    " matching html tag
 Plugin 'groenewege/vim-less'
@@ -82,6 +83,7 @@ nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
 nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 nmap <leader>fw :FixWhitespace<cr>
 
@@ -107,7 +109,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
 
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
@@ -126,10 +128,29 @@ autocmd InsertLeave * :set relativenumber
 " plugin settings
 " let g:indentLine_char = '·'
 " let g:indentLine_char = '▸'
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" neocomplete settings
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><s-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
 
 " syntastic 'default' settings
 set statusline+=%#warningmsg#
@@ -143,10 +164,10 @@ let g:syntastic_check_on_wq = 0
 
 
 " autoreload vimrc
-augroup reload_vimrc
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
+" augroup reload_vimrc
+"   autocmd!
+"   autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup END
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
