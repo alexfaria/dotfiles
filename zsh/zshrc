@@ -48,7 +48,7 @@ alias tmuxrc="vim $DOTFILES/tmux/tmux.conf"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
 
 alias sv="source $DOTFILES/zsh/zshrc"
-# alias bootwindows="sudo grub-reboot "Windows Boot Manager (on /dev/sdb2)""
+alias bootwindows="sudo grub-reboot 'Windows Boot Manager (on /dev/sdb2)'"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
