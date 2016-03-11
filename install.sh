@@ -10,6 +10,6 @@ ln -s $dir/tmux/tmux.conf ~/.tmux.conf
 ln -s $dir/zsh/zshrc ~/.zshrc
 
 echo "Make vim backup folder"
-mkdir ~/.vim./.tmp
+mkdir $dir/vim/.tmp
 echo "Install vim plugins"
 vim +PluginInstall +qall
