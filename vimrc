@@ -20,6 +20,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'gregsexton/MatchTag'    " matching html tag
 Plugin 'groenewege/vim-less'
 Plugin 'mattn/emmet-vim'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'sickill/vim-monokai'
@@ -31,8 +32,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 
-" Plugin 'scrooloose/nerdtree'
-" Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -82,8 +81,6 @@ set pastetoggle=<F2>
 map <Up> gk
 map <Down> gj
 map <silent> <leader>t :call ToggleVExplorer()<CR>
-" nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-
 
 noremap < >
 noremap > <
@@ -107,7 +104,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
 
-
 inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
@@ -125,7 +121,7 @@ nmap <leader>q :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 nmap <leader>fw :FixWhitespace<cr>
 
-" Relative Number Line
+" relative number line
 set nu
 set relativenumber
 :au FocusLost * :set number
@@ -143,12 +139,9 @@ let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#hunks#non_zero_only = 1
-
 let delimitMate_expand_cr = 1
 
 " ----- scrooloose/syntastic settings -----
-"
-" syntastic 'default' settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -156,7 +149,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" jez/vim-as-an-ide settings
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
 augroup mySyntastic
@@ -164,15 +156,7 @@ augroup mySyntastic
   au FileType tex let b:syntastic_mode = "passive"
 augroup END
 
-
-
-" autoreload vimrc
-" augroup reload_vimrc
-"   autocmd!
-"   autocmd BufWritePost $MYVIMRC source $MYVIMRC
-" augroup END
-
-" Toggle Vexplore with <leader>t
+" toggle vexplore with <leader>t
 function! ToggleVExplorer()
   if exists("t:expl_buf_num")
     let expl_win_num = bufwinnr(t:expl_buf_num)
@@ -192,7 +176,7 @@ function! ToggleVExplorer()
   endif
 endfunction
 
-" Hit enter in the file browser to open the selected
+" hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
 let g:netrw_winsize = 25
 let g:netrw_hide = 1                " show not-hidden files
