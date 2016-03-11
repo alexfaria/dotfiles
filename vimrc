@@ -7,25 +7,25 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'mattn/emmet-vim'
-Plugin 'tpope/vim-surround'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Yggdroot/indentLine'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ervandew/supertab'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'gregsexton/MatchTag'    " matching html tag
 Plugin 'groenewege/vim-less'
+Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
-Plugin 'gregsexton/MatchTag'    " matching html tag
-Plugin 'easymotion/vim-easymotion'
+Plugin 'sickill/vim-monokai'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sickill/vim-monokai'
-Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'Yggdroot/indentLine'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
