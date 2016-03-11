@@ -77,25 +77,16 @@ map <Up> gk
 map <Down> gj
 map <silent> <leader>t :call ToggleVExplorer()<CR>
 
-nmap <leader>w :w!<cr>
-inoremap <leader>w <Esc>:w!<CR>
-nmap <leader>T :enew<cr>
-nmap <leader>l :bnext<CR>
-nmap <leader>h :bprevious<CR>
-nmap <leader>bq :bp <BAR> bd #<CR>
-nmap <leader>q :bp <BAR> bd #<CR>
-nmap <leader>bl :ls<CR>
-nmap <leader>fw :FixWhitespace<cr>
 
 noremap < >
 noremap > <
 nnoremap j gj
 nnoremap k gk
 
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
+noremap <up>    :echom 'dont be a noob'<CR>
+noremap <down>  :echom 'dont be a noob'<CR>
+noremap <left>  :echom 'dont be a noob'<CR>
+noremap <right> :echom 'dont be a noob'<CR>
 
 inoremap jj <esc>   " go to normal mode
 inoremap {% {%  %}<left><left><left>
@@ -109,6 +100,8 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>i
 
+
+inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -116,6 +109,14 @@ nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
 nnoremap <leader><space> :nohlsearch<CR>
 
+nmap <leader>w :w!<cr>
+nmap <leader>T :enew<cr>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
+nmap <leader>bl :ls<CR>
+nmap <leader>fw :FixWhitespace<cr>
 
 " Relative Number Line
 set nu
@@ -169,7 +170,7 @@ let g:syntastic_check_on_wq = 0
 "   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " augroup END
 
-" Toggle Vexplore with Ctrl-E
+" Toggle Vexplore with <leader>t
 function! ToggleVExplorer()
   if exists("t:expl_buf_num")
     let expl_win_num = bufwinnr(t:expl_buf_num)
@@ -191,7 +192,7 @@ endfunction
 
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
-let g:netrw_winsize = 15
+let g:netrw_winsize = 25
 let g:netrw_hide = 1                " show not-hidden files
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
