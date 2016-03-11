@@ -7,13 +7,16 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'alvan/vim-closetag'     " close (x)html tag
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
-" Plugin 'ervandew/supertab'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'ervandew/supertab'
 Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'godlygeek/tabular'
 Plugin 'gregsexton/MatchTag'    " matching html tag
 Plugin 'groenewege/vim-less'
 Plugin 'mattn/emmet-vim'
@@ -27,6 +30,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
+
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -76,6 +82,7 @@ set pastetoggle=<F2>
 map <Up> gk
 map <Down> gj
 map <silent> <leader>t :call ToggleVExplorer()<CR>
+" nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 
 noremap < >
@@ -129,30 +136,18 @@ autocmd InsertLeave * :set relativenumber
 " plugin settings
 " let g:indentLine_char = '·'
 " let g:indentLine_char = '▸'
-" let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:airline#extensions#tabline#enabled = 1
+let g:SuperTabCompleteCase='ignore'
+let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:airline_powerline_fonts = 1
+let g:airline_detect_paste=1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#hunks#non_zero_only = 1
 
-" neocomplete settings
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><s-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
+let delimitMate_expand_cr = 1
 
-
+" ----- scrooloose/syntastic settings -----
+"
 " syntastic 'default' settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -161,6 +156,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" jez/vim-as-an-ide settings
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
 
 
 
