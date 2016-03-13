@@ -32,10 +32,11 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'Yggdroot/indentLine'
 
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -124,7 +125,8 @@ inoremap <C-s> <Esc>:w<CR>i
 inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
+" nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
+nnoremap <leader>sv :source $MYVIMRC <bar> :call lightline#update()<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
 nnoremap <leader><space> :nohlsearch<CR>
@@ -152,12 +154,12 @@ autocmd InsertLeave * :set relativenumber
 " let g:indentLine_char = '▸'
 let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:airline_powerline_fonts = 1
-let g:airline_detect_paste=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#hunks#non_zero_only = 1
 let delimitMate_expand_cr = 1
+" let g:airline_powerline_fonts = 1
+" let g:airline_detect_paste=1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#hunks#non_zero_only = 1
 
 " ----- scrooloose/syntastic settings -----
 set statusline+=%#warningmsg#
