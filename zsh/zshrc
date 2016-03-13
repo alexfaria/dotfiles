@@ -4,8 +4,7 @@ export ZSH=$DOTFILES/zsh/oh-my-zsh
 ZSH_CUSTOM=$DOTFILES/zsh/custom
 # ZSH_THEME="honukai"
 # ZSH_THEME="spaceship"
-# ZSH_THEME="bullet-train"
-ZSH_THEME="odin"
+ZSH_THEME="bullet-train/bullet-train"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
