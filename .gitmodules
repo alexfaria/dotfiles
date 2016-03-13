@@ -5,5 +5,5 @@
 	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zhs
 [submodule "zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = "zsh/custom/plugins/zsh-syntax-highlithing"
+	path =zsh/custom/plugins/zsh-syntax-highlithing
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
