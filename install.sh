@@ -13,9 +13,7 @@ ln -s $dir/tmux/tmux.conf .tmux.conf
 ln -s $dir/zsh/zshrc .zshrc
 
 echo "Make vim backup folder"
-if [! -d "$dir/vim/.tmp"]; then
-    mkdir $dir/vim/.tmp
-fi
+mkdir $dir/vim/.tmp
 
 echo "Install vim plugins"
 vim +PluginInstall +qall
