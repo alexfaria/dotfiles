@@ -124,7 +124,7 @@ inoremap <C-s> <Esc>:w<CR>i
 inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
 nnoremap <leader><space> :nohlsearch<CR>
