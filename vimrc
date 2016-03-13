@@ -31,6 +31,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
@@ -127,6 +128,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
 nnoremap <leader><space> :nohlsearch<CR>
+let @/ = ""             " clear last search when sourcing vimrc
 
 nmap <leader>w :w!<cr>
 nmap <leader>T :enew<cr>
