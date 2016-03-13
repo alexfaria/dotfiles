@@ -7,3 +7,18 @@
 [submodule "zsh/custom/plugins/zsh-syntax-highlighting"]
     path = zsh/custom/plugins/zsh-syntax-highlighting
     url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/custom/powerlevel9k"]
+	path = zsh/custom/powerlevel9k
+	url = https://github.com/bhilburn/powerlevel9k
+[submodule "zsh/custom/honukai"]
+	path = zsh/custom/honukai
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh
+[submodule "zsh/custom/bullet-train-oh-my-zsh-theme"]
+	path = zsh/custom/bullet-train
+	url = https://github.com/caiogondim/bullet-train-oh-my-zsh-theme
+[submodule "zsh/custom/spaceship-zsh-theme"]
+	path = zsh/custom/spaceship
+	url = https://github.com/denysdovhan/spaceship-zsh-theme
+[submodule "zsh/custom/odin"]
+	path = zsh/custom/odin
+	url = https://github.com/tylerreckart/odin
