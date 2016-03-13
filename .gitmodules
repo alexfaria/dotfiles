@@ -10,9 +10,6 @@
 [submodule "zsh/custom/powerlevel9k"]
 	path = zsh/custom/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
-[submodule "zsh/custom/honukai"]
-	path = zsh/custom/honukai
-	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh
 [submodule "zsh/custom/bullet-train-oh-my-zsh-theme"]
 	path = zsh/custom/bullet-train
 	url = https://github.com/caiogondim/bullet-train-oh-my-zsh-theme
