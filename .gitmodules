@@ -19,3 +19,6 @@
 [submodule "zsh/custom/odin"]
 	path = zsh/custom/odin
 	url = https://github.com/tylerreckart/odin
+[submodule "zsh/custom/honukai-iterm-zsh"]
+	path = zsh/custom/honukai
+	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh
