@@ -58,6 +58,7 @@ set so=7
 set hidden      " dont close buffers, only hide
 set mouse=a     " enable mouse
 set ttyfast                  " we have a fast terminal
+set fdm=manual
 set showcmd                  " show command in bottom bar
 set wildmenu                 " visual autocomplete for command menu
 set hlsearch    " highlight matches
@@ -122,7 +123,7 @@ nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
-nnoremap <leader><c-b> gg=G
+nnoremap <leader><c-b> magg=G'a         " indent file and go back to cursor pos
 nnoremap <leader><space> :nohlsearch<CR>
 let @/ = ""             " clear last search when sourcing vimrc
 
@@ -153,6 +154,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
 let g:airline_powerline_fonts = 1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
@@ -164,6 +166,7 @@ let g:airline#extensions#hunks#non_zero_only = 1
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 " set statusline+=%{fugitive#statusline()}
+let g:syntastic_loc_list_height = 5
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
