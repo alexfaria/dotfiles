@@ -172,13 +172,13 @@ let g:promptline_symbols = {
     \ 'space'      : ' '}
 let g:promptline_preset = {
         \'a' : [ '%*' ],
-        \'c' : [ promptline#slices#cwd() ],
+        \'b' : [ promptline#slices#cwd() ],
         \'x' : [ promptline#slices#vcs_branch() ],
         \'y' : [ promptline#slices#git_status() ],
         \'z' : [ promptline#slices#python_virtualenv() ],
         \'warn' : [ promptline#slices#last_exit_code() ],
         \'options': {
-            \'left_sections' : [ 'a', 'b', 'c' ],
+            \'left_sections' : [ 'a', 'b' ],
             \'right_sections': [ 'x', 'y', 'z' ]}}
 
 " ----- airline settings -----
