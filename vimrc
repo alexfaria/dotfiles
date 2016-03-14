@@ -13,7 +13,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'     " close (x)html tag
-Plugin 'bronson/vim-trailing-whitespace'
+" Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'edkolev/promptline.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
@@ -77,7 +78,7 @@ set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
-set clipboard=unnamed           " use system clipboard by default
+set clipboard=unnamedplus           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
 let python_highlight_all = 1
@@ -127,6 +128,8 @@ nnoremap <leader><c-b> magg=G'a         " indent file and go back to cursor pos
 nnoremap <leader><space> :nohlsearch<CR>
 let @/ = ""             " clear last search when sourcing vimrc
 
+nmap <leader>y "*y
+nmap <leader>p "*p
 nmap <leader>w :w!<cr>
 nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
@@ -155,13 +158,57 @@ let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
-let g:airline_powerline_fonts = 1
+
+" ----- promptline settings -----
+let g:promptline_powerline_symbols = 0
+let g:promptline_symbols = {
+    \ 'left'       : '▶',
+    \ 'left_alt'   : '▶',
+    \ 'right'      : '◀',
+    \ 'right_alt'  : '◀',
+    \ 'dir_sep'    : ' / ',
+    \ 'truncation' : '...',
+    \ 'vcs_branch' : '⎇  ',
+    \ 'space'      : ' '}
+let g:promptline_preset = {
+        \'a' : [ '%*' ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'x' : [ promptline#slices#vcs_branch() ],
+        \'y' : [ promptline#slices#git_status() ],
+        \'z' : [ promptline#slices#python_virtualenv() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
+" ----- airline settings -----
+
+let g:airline_theme="luna"
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#virtualenv#enabled = 1
 let g:airline_detect_paste=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
-" ----- scrooloose/syntastic settings -----
+" unicode symbols
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" ----- syntastic settings -----
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -173,10 +220,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = '✘'
 let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-  au!
-  au FileType tex let b:syntastic_mode = "passive"
-augroup END
 
 " toggle vexplore with <leader>t
 function! ToggleVExplorer()
