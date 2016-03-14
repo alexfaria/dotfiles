@@ -129,8 +129,8 @@ nnoremap <leader><c-b> magg=G'a         " indent file and go back to cursor pos
 nnoremap <leader><space> :nohlsearch<CR>
 let @/ = ""             " clear last search when sourcing vimrc
 
-nmap <leader>y "*y
-nmap <leader>p "*p
+nmap <leader>y "+y
+nmap <leader>p "+p
 nmap <leader>w :w!<cr>
 nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
@@ -172,7 +172,6 @@ let g:promptline_symbols = {
     \ 'space'      : ' '}
 let g:promptline_preset = {
         \'a' : [ '%*' ],
-        \'b' : [ promptline#slices#user() ],
         \'c' : [ promptline#slices#cwd() ],
         \'x' : [ promptline#slices#vcs_branch() ],
         \'y' : [ promptline#slices#git_status() ],
