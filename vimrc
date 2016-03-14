@@ -20,23 +20,20 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'godlygeek/tabular'
-Plugin 'gregsexton/MatchTag'    " matching html tag
 Plugin 'groenewege/vim-less'
 Plugin 'mattn/emmet-vim'
+Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'sickill/vim-monokai'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
-Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
-
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -53,7 +50,6 @@ if has("gui_running")
     nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
     nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
     nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-    set guifont=Menlo\ for\ Powerline
 endif
 
 
@@ -80,7 +76,6 @@ set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
-set statusline+=%{fugitive#statusline()}
 set clipboard=unnamed           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
@@ -125,8 +120,7 @@ inoremap <C-s> <Esc>:w<CR>i
 inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
-" nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
-nnoremap <leader>sv :source $MYVIMRC <bar> :call lightline#update()<CR>
+nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> gg=G
 nnoremap <leader><space> :nohlsearch<CR>
@@ -140,7 +134,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 nmap <leader>fw :FixWhitespace<cr>
-
 " relative number line
 set nu
 set relativenumber
@@ -149,17 +142,23 @@ set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
+" This autocommand jumps to the last known position in a file
+"       just after opening it
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 " plugin settings
+
 " let g:indentLine_char = '·'
 " let g:indentLine_char = '▸'
 let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let delimitMate_expand_cr = 1
-" let g:airline_powerline_fonts = 1
-" let g:airline_detect_paste=1
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline_powerline_fonts = 1
+let g:airline_detect_paste=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#hunks#non_zero_only = 1
+set statusline+=%{fugitive#statusline()}
 
 " ----- scrooloose/syntastic settings -----
 set statusline+=%#warningmsg#
@@ -204,5 +203,4 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_list_hide= '\..*\/,.*\.pyc,.*\.swp'
 let g:netrw_liststyle=3
-
 
