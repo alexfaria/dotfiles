@@ -15,14 +15,12 @@ ln -s $dir/zsh/zshrc .zshrc
 echo "Make vim backup folder"
 mkdir $dir/vim/.tmp
 
-echo "Install patched fonts"
-cd $dir
-git clone https://github.com/powerline/fonts powerline-fonts
-cd powerline-fonts
-chmod +x install.sh
-sh ./install.sh
-cd $dir
-rm -rf powerline-fonts
+echo "Install cool fonts"
+curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
 
+echo "Generating promptline"
+vim +"PromptlineSnapshot! ~/.dotfiles/zsh/custom/promptline.zsh-theme airline" +qall
 echo "Install vim plugins"
 vim +PluginInstall +qall
+echo "Reload zshrc"
+source ~/.zshrc
