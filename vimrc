@@ -13,20 +13,20 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'     " close (x)html tag
-Plugin 'edkolev/promptline.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'edkolev/promptline.vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'ervandew/supertab'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'godlygeek/tabular'
 Plugin 'groenewege/vim-less'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'mattn/emmet-vim'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
-Plugin 'sickill/vim-monokai'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -35,11 +35,21 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 
+" themes
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'scwood/vim-hybrid'
+Plugin 'sickill/vim-monokai'
+Plugin 'the31k/vim-colors-tayra'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable   " enable syntax highlighting
+set background=dark
 silent! colorscheme monokai
+
+set list          " Display unprintable characters f12 - switches
+set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
 if has("gui_running")
     set guioptions-=m  "remove menu bar
@@ -155,9 +165,27 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " let g:indentLine_char = '·'
 let g:SuperTabCompleteCase='ignore'
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "context"
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
+
+" ----- tmuxline settings -----
+let g:tmuxline_powerline_separators = 0
+let g:tmuxline_separators = {
+    \ 'left' : '▶',
+    \ 'left_alt': '',
+    \ 'right' : '◀',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'c'    : '#H',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
+      \'x'    : '%a',
+      \'y'    : '#W %R',
+      \'z'    : '#H'}
 
 " ----- promptline settings -----
 let g:promptline_powerline_symbols = 0
