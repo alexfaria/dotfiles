@@ -1,10 +1,12 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/alex/.oh-my-zsh
+export TERM="xterm-256color"
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 ZSH_CUSTOM=$DOTFILES/zsh/custom
 # ZSH_THEME="honukai"
 # ZSH_THEME="spaceship"
-ZSH_THEME="bullet-train/bullet-train"
+# ZSH_THEME="bullet-train/bullet-train"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
