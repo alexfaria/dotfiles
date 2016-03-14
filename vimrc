@@ -13,7 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'alvan/vim-closetag'     " close (x)html tag
-" Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'edkolev/promptline.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
@@ -40,19 +39,21 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable   " enable syntax highlighting
-colorscheme monokai
+silent! colorscheme monokai
 
 if has("gui_running")
     set guioptions-=m  "remove menu bar
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
+    " set guifont=Menlo\ 11
+    set guifont=DejaVu\ Sans\ Mono\ 11
+
     " toggling the display of a widget
     nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
     nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
     nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 endif
-
 
 
 set so=7
@@ -78,7 +79,7 @@ set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
-set clipboard=unnamedplus           " use system clipboard by default
+" set clipboard=unnamedplus           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
 let python_highlight_all = 1
@@ -150,10 +151,9 @@ autocmd InsertLeave * :set relativenumber
 "       just after opening it
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-" plugin settings
+" ---- plugin settings -----
 
 " let g:indentLine_char = '·'
-" let g:indentLine_char = '▸'
 let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let delimitMate_expand_cr = 1
@@ -166,7 +166,7 @@ let g:promptline_symbols = {
     \ 'left_alt'   : '▶',
     \ 'right'      : '◀',
     \ 'right_alt'  : '◀',
-    \ 'dir_sep'    : ' / ',
+    \ 'dir_sep'    : '/',
     \ 'truncation' : '...',
     \ 'vcs_branch' : '⎇  ',
     \ 'space'      : ' '}
@@ -177,7 +177,10 @@ let g:promptline_preset = {
         \'x' : [ promptline#slices#vcs_branch() ],
         \'y' : [ promptline#slices#git_status() ],
         \'z' : [ promptline#slices#python_virtualenv() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
+        \'warn' : [ promptline#slices#last_exit_code() ],
+        \'options': {
+            \'left_sections' : [ 'a', 'b', 'c' ],
+            \'right_sections': [ 'x', 'y', 'z' ]}}
 
 " ----- airline settings -----
 
@@ -203,16 +206,12 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " ----- syntastic settings -----
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" set statusline+=%{fugitive#statusline()}
 let g:syntastic_loc_list_height = 5
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
