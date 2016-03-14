@@ -23,7 +23,9 @@ echo "Install cool fonts"
 curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
 echo "Install vim plugins"
 vim +PluginInstall +qall
-echo "Generating promptline"
-vim +"PromptlineSnapshot! ~/.dotfiles/zsh/custom/promptline.zsh-theme airline" +qall
+echo "Generate promptline"
+vim +"PromptlineSnapshot! $dir/zsh/custom/promptline.zsh-theme airline" +qall
+echo "Generate tmuxline"
+vim +"TmuxLineSnapshot! $dir/tmux/tmuxline.conf" +qall
 echo "Reload zshrc"
-source ~/.zshrc
+source $dir/zsh/zshrc
