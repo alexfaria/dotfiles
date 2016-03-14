@@ -18,9 +18,10 @@ mkdir $dir/vim/.tmp
 echo "Install cool fonts"
 curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
 
-echo "Generating promptline"
-vim +"PromptlineSnapshot! ~/.dotfiles/zsh/custom/promptline.zsh-theme airline" +qall
+
 echo "Install vim plugins"
 vim +PluginInstall +qall
+echo "Generating promptline"
+vim +"PromptlineSnapshot! ~/.dotfiles/zsh/custom/promptline.zsh-theme airline" +qall
 echo "Reload zshrc"
 source ~/.zshrc
