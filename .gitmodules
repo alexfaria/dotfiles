@@ -22,3 +22,6 @@
 [submodule "zsh/custom/honukai-iterm-zsh"]
 	path = zsh/custom/honukai
 	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh
+[submodule "base16-builder"]
+	path = base16-builder
+	url = https://github.com/kowalskey/base16-builder
