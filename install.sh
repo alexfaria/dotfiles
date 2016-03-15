@@ -19,8 +19,10 @@ ln -s $dir/zsh/zshrc .zshrc
 
 echo "Make vim backup folder"
 mkdir $dir/vim/.tmp
-echo "Install cool fonts"
-curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
+if [ "$1" == "fonts" ]; then
+    echo "Install cool fonts"
+    curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
+fi
 echo "Install vim plugins"
 vim +PluginInstall +qall
 echo "Generate promptline"
