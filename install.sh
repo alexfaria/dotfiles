@@ -1,4 +1,5 @@
 #!/bin/bash
+export PATH="~/bin:$PATH"
 
 dir=~/.dotfiles
 cd $dir
@@ -19,15 +20,15 @@ ln -s $dir/zsh/zshrc .zshrc
 
 echo "Make vim backup folder"
 mkdir $dir/vim/.tmp
-if [ "$1" == "fonts" ]; then
+if [ "$1" == "all" ]; then
     echo "Install cool fonts"
     curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
+    echo "Run base16-builder"
+    ruby $dir/base16-builder/base16
 fi
 echo "Install vim plugins"
 vim +PluginInstall +qall
 echo "Generate promptline"
-vim +"PromptlineSnapshot! $dir/zsh/custom/promptline.zsh-theme airline" +qall
+vim +"Tmuxline" +"PromptlineSnapshot! $dir/zsh/custom/promptline.zsh-theme airline" +qall
 echo "Generate tmuxline"
-vim +"TmuxLineSnapshot! $dir/tmux/tmuxline.conf" +qall
-echo "Reload zshrc"
-source $dir/zsh/zshrc
+vim +"TmuxLineSnapshot! $dir/tmux/tmuxline.conf airline" +qall
