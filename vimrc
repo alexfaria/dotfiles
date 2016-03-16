@@ -48,7 +48,8 @@ syntax enable   " enable syntax highlighting
 set t_Co=256
 let base16colorspace="256"
 set background=dark
-colorscheme base16-$BASE16
+execute "colorscheme ".$COLORSCHEME
+let g:airline_theme=$AIRLINE_THEME
 
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
@@ -214,7 +215,6 @@ let g:promptline_preset = {
 
 " ----- airline settings -----
 
-let g:airline_theme="base16_default"
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline_detect_paste=1
