@@ -69,6 +69,7 @@ if has("gui_running")
 endif
 
 
+set t_ut=       "fix colorschemes in tmux
 set so=7
 set hidden      " dont close buffers, only hide
 set mouse=a     " enable mouse
