@@ -2,11 +2,14 @@
 export TERM="xterm-256color"
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
-export BASE16=mocha
+
 ZSH_CUSTOM=$DOTFILES/zsh/custom
 ZSH_THEME="promptline"
 
 # Base16 Shell
+export BASE16='monokai'
+export COLORSCHEME="base16-${BASE16}"
+export AIRLINE_THEME="base16_${BASE16}"
 BASE16_SHELL="$DOTFILES/base16-shell/base16-$BASE16.dark.sh"
 [[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
 
