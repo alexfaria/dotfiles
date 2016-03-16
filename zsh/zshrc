@@ -2,11 +2,12 @@
 export TERM="xterm-256color"
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
+export BASE16=mocha
 ZSH_CUSTOM=$DOTFILES/zsh/custom
 ZSH_THEME="promptline"
 
 # Base16 Shell
-BASE16_SHELL="$DOTFILES/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$DOTFILES/base16-shell/base16-$BASE16.dark.sh"
 [[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
 
 # Uncomment the following line to enable command auto-correction.

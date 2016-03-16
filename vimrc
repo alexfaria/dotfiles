@@ -48,7 +48,7 @@ syntax enable   " enable syntax highlighting
 set t_Co=256
 let base16colorspace="256"
 set background=dark
-colorscheme base16-mocha
+colorscheme base16-$BASE16
 
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
@@ -134,7 +134,7 @@ inoremap <C-s> <Esc>:w<CR>i
 
 inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
-nnoremap <leader>ez :vsp $HOME/.zshrc<CR>
+nnoremap <leader>ez :edit $HOME/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> magg=G'a         " indent file and go back to cursor pos
