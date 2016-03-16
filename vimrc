@@ -39,14 +39,16 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'scwood/vim-hybrid'
 Plugin 'sickill/vim-monokai'
-Plugin 'the31k/vim-colors-tayra'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable   " enable syntax highlighting
+set t_Co=256
+let base16colorspace="256"
 set background=dark
-silent! colorscheme monokai
+colorscheme base16-mocha
 
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
@@ -170,6 +172,7 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 " ----- tmuxline settings -----
+let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_powerline_separators = 0
 let g:tmuxline_separators = {
     \ 'left' : '▶',
@@ -177,15 +180,15 @@ let g:tmuxline_separators = {
     \ 'right' : '◀',
     \ 'right_alt' : '',
     \ 'space' : ' '}
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'b'    : '#W',
-      \'c'    : '#H',
-      \'win'  : '#I #W',
-      \'cwin' : '#I #W',
-      \'x'    : '%a',
-      \'y'    : '#W %R',
-      \'z'    : '#H'}
+" let g:tmuxline_preset = {
+"       \'a'    : '#S',
+"       \'b'    : '#W',
+"       \'win'  : '#W',
+"       \'cwin' : '#W',
+"       \'x'    : '%a',
+"       \'y'    : '%R',
+"       \'z'    : '#H'}
+let g:tmuxline_preset = "minimal"
 
 " ----- promptline settings -----
 let g:promptline_powerline_symbols = 0
@@ -211,7 +214,7 @@ let g:promptline_preset = {
 
 " ----- airline settings -----
 
-let g:airline_theme="luna"
+let g:airline_theme="base16_default"
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
 let g:airline_detect_paste=1
