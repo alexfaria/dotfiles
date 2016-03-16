@@ -1,7 +1,8 @@
 #!/bin/bash
-export PATH="~/bin:$PATH"
-
 dir=~/.dotfiles
+export PATH="~/bin:$PATH"
+export DOTFILES=$dir
+
 cd $dir
 git submodule update --init --recursive
 
@@ -23,8 +24,6 @@ mkdir $dir/vim/.tmp
 if [ "$1" == "all" ]; then
     echo "Install cool fonts"
     curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
-    echo "Run base16-builder"
-    ruby $dir/base16-builder/base16
 fi
 echo "Install vim plugins"
 vim +PluginInstall +qall
