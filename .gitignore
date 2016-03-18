@@ -2,3 +2,5 @@ vim/.tmp
 vim/.netrwhist
 vim/bundle/*
 !vim/bundle/Vundle.vim
+zsh/custom/promptline.zsh-theme
+
