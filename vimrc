@@ -29,11 +29,14 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
+
+Plugin 'scrooloose/nerdtree'
 
 " themes
 Plugin 'nanotech/jellybeans.vim'
@@ -83,10 +86,6 @@ set infercase
 set autochdir
 set showmatch   " highlight matching [{()}]
 set incsearch   " search as chars are entered
-set expandtab   " expand tabs into spaces
-set softtabstop=4               " number of spaces in tab editing
-set ts=4   " set tabs to have 4 spaces
-set shiftwidth=4
 set ignorecase
 set cursorline
 set autoindent  " indent when moving to the next line while writing code
@@ -97,7 +96,11 @@ set laststatus=2
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
 let python_highlight_all = 1
-
+" indentation
+set expandtab   " expand tabs into spaces
+set shiftwidth=2
+set softtabstop=2               " number of spaces in tab editing
+set tabstop=2
 "  backup
 set backup
 set backupdir=$HOME/.vim/.tmp
@@ -110,7 +113,8 @@ set pastetoggle=<F2>
 
 map <Up> gk
 map <Down> gj
-map <silent> <leader>t :call ToggleVExplorer()<CR>
+" map <silent> <leader>t :call ToggleVExplorer()<CR>
+map <leader>t :NERDTreeToggle<cr>
 
 noremap < >
 noremap > <

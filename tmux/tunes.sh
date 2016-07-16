@@ -3,7 +3,7 @@ if [ "$(pidof rhythmbox)" ]; then
     music=$(rhythmbox-client --print-playing)
     music="♫ $music"
     LEN=$(echo ${#music})
-    MAX=31
+    MAX=90
     if [ $LEN -lt $MAX ]; then
         echo $music
     else
