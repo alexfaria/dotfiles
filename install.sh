@@ -7,20 +7,21 @@ cd $dir
 git submodule update --init --recursive
 
 cd $HOME
-mkdir tmp/
-mv .vimrc tmp/
-mv .vim tmp/
-mv .bash_aliases tmp/
-mv .tmux.conf tmp/
-mv .zshrc tmp/
+[ ! -d tmp ] && mkdir tmp/
+[ ! -d $dir/vim/.tmp ] && mkdir $dir/vim/.tmp
+[ ! -d .config ] && mkdir .config
+[ -a .vimrc ] && mv .vimrc tmp/
+[ -a .vim ] && mv .vim tmp/
+[ -a .bash_aliases ] && mv .bash_aliases tmp/
+[ -a .tmux.conf ] && mv .tmux.conf tmp/
+[ -a .zshrc ] && mv .zshrc tmp/
 ln -s $dir/vimrc .vimrc
 ln -s $dir/vim .vim
 ln -s $dir/bash_aliases .bash_aliases
 ln -s $dir/tmux/tmux.conf .tmux.conf
 ln -s $dir/zsh/zshrc .zshrc
+ln -s $dir/nvim .config/nvim
 
-echo "Make vim backup folder"
-mkdir $dir/vim/.tmp
 if [ "$1" == "all" ]; then
     echo "Install cool fonts"
     curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
