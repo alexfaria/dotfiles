@@ -4,7 +4,7 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 
 ZSH_CUSTOM=$DOTFILES/zsh/custom
-ZSH_THEME="promptline"
+ZSH_THEME="honukai/honukai"
 
 # Base16 Shell
 export BASE16='monokai'
