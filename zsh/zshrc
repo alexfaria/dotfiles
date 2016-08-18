@@ -62,6 +62,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### VirtualEnvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ -a /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
