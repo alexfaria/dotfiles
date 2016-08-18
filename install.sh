@@ -11,10 +11,11 @@ cd $HOME
 [ ! -d $dir/vim/.tmp ] && mkdir $dir/vim/.tmp
 [ ! -d .config ] && mkdir .config
 [ -a .vimrc ] && mv .vimrc tmp/
-[ -a .vim ] && mv .vim tmp/
 [ -a .bash_aliases ] && mv .bash_aliases tmp/
+[ -a .vim ] && mv .vim tmp/
 [ -a .tmux.conf ] && mv .tmux.conf tmp/
 [ -a .zshrc ] && mv .zshrc tmp/
+[ -d .config/nvim ] && mv .config/nvim -r tmp
 ln -s $dir/vimrc .vimrc
 ln -s $dir/vim .vim
 ln -s $dir/bash_aliases .bash_aliases

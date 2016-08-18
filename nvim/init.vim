@@ -1,54 +1,45 @@
-set nocompatible              " be iMproved, required
+" set nocompatible              " be iMproved, required
 filetype off                  " required
 
-if has("win32") || has("win64")
-    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$USERPROFILE/vimfiles/bundle/')
-else
-    set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
-    call vundle#begin()
-endif
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'edkolev/promptline.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'ervandew/supertab'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'mattn/emmet-vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'Raimondi/delimitMate'
+Plug 'neomake/neomake'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'alvan/vim-closetag'     " close (x)html tag
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'edkolev/promptline.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'ervandew/supertab'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'godlygeek/tabular'
-Plugin 'groenewege/vim-less'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'mattn/emmet-vim'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
-
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " themes
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'scwood/vim-hybrid'
-Plugin 'sickill/vim-monokai'
-Plugin 'chriskempson/base16-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'scwood/vim-hybrid'
+Plug 'sickill/vim-monokai'
+Plug 'chriskempson/base16-vim'
 
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 syntax enable   " enable syntax highlighting
-set t_Co=256
+" set t_Co=256
 let base16colorspace="256"
 set background=dark
 execute "colorscheme ".$COLORSCHEME
@@ -72,11 +63,11 @@ if has("gui_running")
 endif
 
 
-set t_ut=       "fix colorschemes in tmux
+" set t_ut=       "fix colorschemes in tmux
 set so=7
 set hidden      " dont close buffers, only hide
 set mouse=a     " enable mouse
-set ttyfast                  " we have a fast terminal
+" set ttyfast                  " we have a fast terminal
 set fdm=manual
 set showcmd                  " show command in bottom bar
 set wildmenu                 " visual autocomplete for command menu
@@ -105,7 +96,7 @@ set tabstop=2
 set backup
 set backupdir=$HOME/.vim/.tmp
 set directory=$HOME/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
-set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
+" set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 let mapleader=","
 let maplocalleader="\\"
@@ -230,6 +221,10 @@ let g:airline#extensions#hunks#non_zero_only = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
+" Neomake settings
+autocmd! BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+
 " unicode symbols
 
 if !exists('g:airline_symbols')
@@ -245,15 +240,6 @@ let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" ----- syntastic settings -----
-let g:syntastic_loc_list_height = 5
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
 
 " toggle vexplore with <leader>t
 function! ToggleVExplorer()

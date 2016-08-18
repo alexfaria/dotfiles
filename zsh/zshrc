@@ -48,9 +48,11 @@ alias :q="exit"
 alias dot="cd $DOTFILES"
 
 alias vims="vim -S"
+# alias vim="nvim"
 alias tmux="tmux -2"
 alias zshrc="vim $DOTFILES/zsh/zshrc"
 alias vimrc="vim $DOTFILES/vimrc"
+alias nvimrc="nvim $DOTFILES/nvim/init.vim"
 alias tmuxrc="vim $DOTFILES/tmux/tmux.conf"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
 
