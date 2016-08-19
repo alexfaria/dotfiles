@@ -34,6 +34,7 @@ Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'html' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " themes
+Plug 'dracula/vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'scwood/vim-hybrid'
 Plug 'sickill/vim-monokai'
