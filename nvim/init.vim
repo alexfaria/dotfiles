@@ -223,7 +223,6 @@ let g:airline_right_sep=''
 
 " Neomake settings
 autocmd! BufWritePost * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
 
 " unicode symbols
 
