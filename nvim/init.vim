@@ -3,31 +3,35 @@ filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'davidhalter/jedi-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'godlygeek/tabular'
-Plug 'groenewege/vim-less'
 Plug 'jlanzarotta/bufexplorer'
-Plug 'mattn/emmet-vim'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Raimondi/delimitMate'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
 
-Plug 'scrooloose/nerdtree'
+" git integration
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" language-specific plugins
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'html' }
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " themes
 Plug 'nanotech/jellybeans.vim'
@@ -42,8 +46,12 @@ syntax enable   " enable syntax highlighting
 " set t_Co=256
 let base16colorspace="256"
 set background=dark
-execute "colorscheme ".$COLORSCHEME
-let g:airline_theme=$AIRLINE_THEME
+colorscheme base16-eighties
+let g:airline_theme=base16_eighties
+
+" setting colorscheme using env variables
+" execute "colorscheme ".$COLORSCHEME
+" let g:airline_theme=$AIRLINE_THEME
 
 set list          " Display unprintable characters f12 - switches
 set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
@@ -119,6 +127,8 @@ noremap <right> :echom 'dont be a noob'<CR>
 
 inoremap jj <esc>   " go to normal mode
 inoremap {% {%  %}<left><left><left>
+
+tnoremap <Esc> <C-\><C-n>
 
 nnoremap <C-j> :m+<CR>==
 nnoremap <C-k> :m-2<CR>==
