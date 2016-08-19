@@ -8,7 +8,7 @@ ZSH_CUSTOM=$DOTFILES/zsh/custom
 ZSH_THEME="honukai/honukai"
 
 # Base16 Shell
-export BASE16='monokai'
+export BASE16='eighties'
 export COLORSCHEME="base16-${BASE16}"
 export AIRLINE_THEME="base16_${BASE16}"
 BASE16_SHELL="$DOTFILES/base16-shell/base16-$BASE16.dark.sh"
