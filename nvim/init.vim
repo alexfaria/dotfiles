@@ -47,7 +47,7 @@ syntax enable   " enable syntax highlighting
 let base16colorspace="256"
 set background=dark
 colorscheme base16-eighties
-let g:airline_theme=base16_eighties
+let g:airline_theme='base16_eighties'
 
 " setting colorscheme using env variables
 " execute "colorscheme ".$COLORSCHEME
