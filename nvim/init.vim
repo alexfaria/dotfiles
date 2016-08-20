@@ -25,6 +25,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " language-specific plugins
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
@@ -34,21 +35,18 @@ Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'html' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " themes
-Plug 'dracula/vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'scwood/vim-hybrid'
-Plug 'sickill/vim-monokai'
-Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'chriskempson/base16-vim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
 
-syntax enable   " enable syntax highlighting
-" set t_Co=256
-let base16colorspace="256"
+set t_Co=256
+" let base16colorspace="256"
 set background=dark
-colorscheme base16-eighties
-let g:airline_theme='base16_eighties'
+colorscheme Tomorrow-Night
+let g:airline_theme='gruvbox'
 
 " setting colorscheme using env variables
 " execute "colorscheme ".$COLORSCHEME
@@ -171,9 +169,13 @@ autocmd InsertLeave * :set relativenumber
 "       just after opening it
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
+" undo after closing a file
+set undofile
+set undodir=~/.config/nvim/undodir
+
 " ---- plugin settings -----
 
-" let g:indentLine_char = '·'
+let g:indentLine_char = '·'
 let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "context"
 let delimitMate_expand_cr = 1
