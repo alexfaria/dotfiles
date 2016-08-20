@@ -1,6 +1,3 @@
-" set nocompatible              " be iMproved, required
-filetype off                  " required
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -73,26 +70,19 @@ endif
 " set t_ut=       "fix colorschemes in tmux
 set so=7
 set hidden      " dont close buffers, only hide
-set mouse=a     " enable mouse
-" set ttyfast                  " we have a fast terminal
 set fdm=manual
 set showcmd                  " show command in bottom bar
-set wildmenu                 " visual autocomplete for command menu
-set hlsearch    " highlight matches
 set smartcase
 set infercase
 set autochdir
 set showmatch   " highlight matching [{()}]
-set incsearch   " search as chars are entered
 set ignorecase
 set cursorline
-set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
 " set clipboard=unnamedplus           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
-set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
 let python_highlight_all = 1
 " indentation
 set expandtab   " expand tabs into spaces
