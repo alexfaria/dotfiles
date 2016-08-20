@@ -119,10 +119,15 @@ noremap > <
 nnoremap j gj
 nnoremap k gk
 
-noremap <up>    :echom 'dont be a noob'<CR>
-noremap <down>  :echom 'dont be a noob'<CR>
-noremap <left>  :echom 'dont be a noob'<CR>
-noremap <right> :echom 'dont be a noob'<CR>
+" noremap <up>    :echom 'dont be a noob'<CR>
+" noremap <down>  :echom 'dont be a noob'<CR>
+" noremap <left>  :echom 'dont be a noob'<CR>
+" noremap <right> :echom 'dont be a noob'<CR>
+
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+nnoremap <Up> :resize -2<CR>
+nnoremap <Down> :resize +2<CR>
 
 inoremap jj <esc>   " go to normal mode
 inoremap {% {%  %}<left><left><left>
