@@ -16,12 +16,14 @@ cd $HOME
 [ -a .tmux.conf ] && mv .tmux.conf tmp/
 [ -a .zshrc ] && mv .zshrc tmp/
 [ -d .config/nvim ] && mv .config/nvim -r tmp
+[ -a .eslintrc.json ] && mv .eslintrc.json tmp/
 ln -s $dir/vimrc .vimrc
 ln -s $dir/vim .vim
 ln -s $dir/bash_aliases .bash_aliases
 ln -s $dir/tmux/tmux.conf .tmux.conf
 ln -s $dir/zsh/zshrc .zshrc
 ln -s $dir/nvim .config/nvim
+ln -s $dir/eslintrc.json .eslintrc.json
 
 if [ "$1" == "all" ]; then
     echo "Install cool fonts"
