@@ -1,0 +1,63 @@
+Xcursor.theme: DMZ-White
+
+URxvt.font:                xft:monospace:pixelsize=13
+URxvt.boldFont:            xft:monospace:pixelsize=13:bold
+URxvt.italicFont:          xft:monospace:pixelsize=13:italic
+URxvt.boldItalicFont:      xft:monospace:pixelsize=13:bold:italic
+URxvt.letterSpace:         -1
+URxvt.urgentOnBell:        True
+URxvt.geometry:            180x45
+
+! Base16 Eighties
+! Scheme: Chris Kempson (http://chriskempson.com)
+
+URxvt*background:                     #2d2d2d
+URxvt*foreground:                     #d3d0c8
+URxvt*cursorColor:                    #d3d0c8
+
+URxvt*scrollColor:                    #d3d0c8
+URxvt*highlightColor:                 #515151
+URxvt*highlightTextColor:             #a09f93
+
+URxvt*color0:                         #2d2d2d
+URxvt*color1:                         #f2777a
+URxvt*color2:                         #99cc99
+URxvt*color3:                         #ffcc66
+URxvt*color4:                         #6699cc
+URxvt*color5:                         #cc99cc
+URxvt*color6:                         #66cccc
+URxvt*color7:                         #d3d0c8
+URxvt*color8:                         #747369
+URxvt*color9:                         #f2777a
+URxvt*color10:                        #99cc99
+URxvt*color11:                        #ffcc66
+URxvt*color12:                        #6699cc
+URxvt*color13:                        #cc99cc
+URxvt*color14:                        #66cccc
+URxvt*color15:                        #f2f0ec
+
+URxvt*color16:                        #f99157
+URxvt*color17:                        #d27b53
+URxvt*color18:                        #393939
+URxvt*color19:                        #515151
+URxvt*color20:                        #a09f93
+URxvt*color21:                        #e8e6df
+
+
+URxvt.internalBorder:      0
+URxvt.externalBorder:      0
+
+URxvt.scrollBar:           false
+
+URxvt*fading:              30
+
+/* URxvt.perl-ext-common:     matcher,resize-font,foo */
+
+URxvt.keysym.F11:          perl:fullscreen:switch
+
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+
+URxvt.url-launcher:        /usr/bin/chromium
+URxvt.keysym.M-Delete:     perl:matcher:list
+URxvt.colorUL:             #7780a1
