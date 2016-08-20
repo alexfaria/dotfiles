@@ -136,6 +136,7 @@ inoremap <C-s> <Esc>:w<CR>i
 inoremap <leader>w <Esc>:w!<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>ez :edit $HOME/.zshrc<CR>
+nnoremap <leader>ex :edit $HOME/.Xresources<CR>
 nnoremap <leader>sv :source $MYVIMRC <bar> AirlineRefresh<CR>
 nnoremap <leader>ms :mksession!<CR>   " save session
 nnoremap <leader><c-b> magg=G'a         " indent file and go back to cursor pos
