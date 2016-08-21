@@ -74,6 +74,7 @@ set fdm=manual
 set smartcase
 set infercase
 set autochdir
+set conceallevel=0    " stop it from hiding quotes in json files
 set showmatch   " highlight matching [{()}]
 set ignorecase
 " set cursorline
