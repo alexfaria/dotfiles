@@ -33,6 +33,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " themes
 Plug 'morhetz/gruvbox'
+Plug 'vim-scripts/gruvbox'
 Plug 'chriskempson/vim-tomorrow-theme'
 " Plug 'chriskempson/base16-vim'
 
