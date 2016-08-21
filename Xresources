@@ -4,8 +4,9 @@ URxvt.font:                xft:monospace:pixelsize=13
 URxvt.boldFont:            xft:monospace:pixelsize=13:bold
 URxvt.italicFont:          xft:monospace:pixelsize=13:italic
 URxvt.boldItalicFont:      xft:monospace:pixelsize=13:bold:italic
-URxvt.letterSpace:         -1
+URxvt.letterSpace:         0
 URxvt.urgentOnBell:        True
+URxvt*visualBell:          true
 URxvt.geometry:            180x45
 
 ! Base16 Eighties
@@ -51,8 +52,10 @@ URxvt.scrollBar:           false
 
 URxvt*fading:              30
 
-/* URxvt.perl-ext-common:     matcher,resize-font,foo */
-
+URxvt.keysym.M-j:     perl:keyboard-select:activate
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.F11:          perl:fullscreen:switch
 
 URxvt.resize-font.smaller: C-Down
@@ -61,3 +64,6 @@ URxvt.resize-font.bigger:  C-Up
 URxvt.url-launcher:        /usr/bin/chromium
 URxvt.keysym.M-Delete:     perl:matcher:list
 URxvt.colorUL:             #7780a1
+
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+
