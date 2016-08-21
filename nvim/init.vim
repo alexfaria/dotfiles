@@ -71,13 +71,12 @@ endif
 set so=7
 set hidden      " dont close buffers, only hide
 set fdm=manual
-set showcmd                  " show command in bottom bar
 set smartcase
 set infercase
 set autochdir
 set showmatch   " highlight matching [{()}]
 set ignorecase
-set cursorline
+" set cursorline
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
@@ -97,7 +96,6 @@ set directory=$HOME/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 
 let mapleader=","
 let maplocalleader="\\"
-set pastetoggle=<F2>
 
 map <Up> gk
 map <Down> gj
@@ -156,7 +154,7 @@ nmap <leader>bl :ls<CR>
 nmap <leader>fw :FixWhitespace<cr>
 " relative number line
 set nu
-set relativenumber
+" set relativenumber
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
@@ -240,7 +238,7 @@ autocmd! BufWritePost * Neomake
 " unicode symbols
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
