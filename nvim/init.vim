@@ -28,6 +28,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'html' }
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -81,7 +82,7 @@ set ignorecase
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
-" set clipboard=unnamedplus           " use system clipboard by default
+set clipboard=unnamedplus           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 let python_highlight_all = 1
 " indentation
