@@ -104,8 +104,11 @@ map <Down> gj
 " map <silent> <leader>t :call ToggleVExplorer()<CR>
 map <leader>t :NERDTreeToggle<cr>
 
-noremap < >
-noremap > <
+" indent with tab and shift-tab
+vmap <tab> <gv
+vmap <S-tab> >gv
+nmap <tab> <<
+nmap <S-tab> >>
 nnoremap j gj
 nnoremap k gk
 
@@ -114,8 +117,8 @@ nnoremap k gk
 " noremap <left>  :echom 'dont be a noob'<CR>
 " noremap <right> :echom 'dont be a noob'<CR>
 
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
+nnoremap <Left> :vertical resize -2<CR>
 nnoremap <Up> :resize -2<CR>
 nnoremap <Down> :resize +2<CR>
 
@@ -123,6 +126,7 @@ inoremap jj <esc>   " go to normal mode
 inoremap {% {%  %}<left><left><left>
 
 tnoremap <Esc> <C-\><C-n>
+
 
 nnoremap <C-j> :m+<CR>==
 nnoremap <C-k> :m-2<CR>==
@@ -178,6 +182,8 @@ let g:SuperTabDefaultCompletionType = "context"
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
+" don't hide quotes in json files
+let g:vim_json_syntax_conceal = 0
 " ----- tmuxline settings -----
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_powerline_separators = 0
