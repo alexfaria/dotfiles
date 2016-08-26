@@ -5,7 +5,7 @@ URxvt.boldFont:            xft:monospace:pixelsize=13:bold
 URxvt.italicFont:          xft:monospace:pixelsize=13:italic
 URxvt.boldItalicFont:      xft:monospace:pixelsize=13:bold:italic
 URxvt.letterSpace:         0
-URxvt.urgentOnBell:        True
+URxvt.urgentOnBell:        false
 URxvt*visualBell:          true
 URxvt.geometry:            180x45
 
