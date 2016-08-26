@@ -50,8 +50,10 @@ let g:airline_theme='gruvbox'
 " execute "colorscheme ".$COLORSCHEME
 " let g:airline_theme=$AIRLINE_THEME
 
-set list          " Display unprintable characters f12 - switches
-set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
+" toggle invisible characters
+set list
+set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪          " Display unprintable characters f12 - switches
 
 if has("gui_running")
     set guioptions-=m  "remove menu bar
@@ -75,7 +77,6 @@ set fdm=manual
 set smartcase
 set infercase
 set autochdir
-set conceallevel=0    " stop it from hiding quotes in json files
 set showmatch   " highlight matching [{()}]
 set ignorecase
 " set cursorline
@@ -105,10 +106,10 @@ map <Down> gj
 map <leader>t :NERDTreeToggle<cr>
 
 " indent with tab and shift-tab
-vmap <tab> <gv
-vmap <S-tab> >gv
-nmap <tab> <<
-nmap <S-tab> >>
+vmap <S-tab> <gv
+vmap <tab> >gv
+nmap <S-tab> <<
+nmap <tab> >>
 nnoremap j gj
 nnoremap k gk
 
@@ -116,6 +117,9 @@ nnoremap k gk
 " noremap <down>  :echom 'dont be a noob'<CR>
 " noremap <left>  :echom 'dont be a noob'<CR>
 " noremap <right> :echom 'dont be a noob'<CR>
+
+" enable . command in visual mode
+vnoremap . :normal .<cr>
 
 nnoremap <Right> :vertical resize +2<CR>
 nnoremap <Left> :vertical resize -2<CR>
@@ -127,6 +131,9 @@ inoremap {% {%  %}<left><left><left>
 
 tnoremap <Esc> <C-\><C-n>
 
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 nnoremap <C-j> :m+<CR>==
 nnoremap <C-k> :m-2<CR>==
@@ -157,14 +164,15 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
-nmap <leader>fw :FixWhitespace<cr>
-" relative number line
+nmap <leader>fw :%s/\s\+$<cr>       " remove extra whitespace
+
 set nu
+" relative number line
 " set relativenumber
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+" :au FocusLost * :set number
+" :au FocusGained * :set relativenumber
+" autocmd InsertEnter * :set number
+" autocmd InsertLeave * :set relativenumber
 
 " This autocommand jumps to the last known position in a file
 "       just after opening it
@@ -176,7 +184,14 @@ set undodir=~/.config/nvim/undodir
 
 " ---- plugin settings -----
 
-let g:indentLine_char = '·'
+let g:indentLine_color_term = 239 " Vim
+let g:indentLine_color_gui = '#A4E57E' "GVim
+
+" non X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+let g:indentLine_char = '¦'
+
 let g:SuperTabCompleteCase='ignore'
 let g:SuperTabDefaultCompletionType = "context"
 let delimitMate_expand_cr = 1
