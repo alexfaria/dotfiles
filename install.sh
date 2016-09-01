@@ -15,7 +15,7 @@ cd $HOME
 [ -a .vim ] && mv .vim tmp/
 [ -a .tmux.conf ] && mv .tmux.conf tmp/
 [ -a .zshrc ] && mv .zshrc tmp/
-[ -d .config/nvim ] && mv .config/nvim -r tmp
+[ -d .config/nvim ] && mv -r .config/nvim tmp
 [ -a .eslintrc.json ] && mv .eslintrc.json tmp/
 [ -a .Xresources ] && mv .Xresources tmp/
 [ -a .yaourtrc ] && mv .yaourtrc tmp/
@@ -28,13 +28,15 @@ ln -s $dir/nvim .config/nvim
 ln -s $dir/eslintrc.json .eslintrc.json
 ln -s $dir/Xresources .Xresources
 ln -s $dir/yaourtrc .yaourtrc
+ln -s $dir/urxvt .urxvt
 
 if [ "$1" == "all" ]; then
     echo "Install cool fonts"
     curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
+    echo "Install vim plugins"
+    vim +PluginInstall +qall
 fi
-echo "Install vim plugins"
-vim +PluginInstall +qall
+nvim +PlugInstall
 echo "Generate promptline"
 vim +"Tmuxline" +"PromptlineSnapshot! $dir/zsh/custom/promptline.zsh-theme airline" +qall
 echo "Generate tmuxline"
