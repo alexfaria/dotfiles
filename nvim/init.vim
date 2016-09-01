@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
@@ -45,7 +45,7 @@ set t_Co=256
 " let base16colorspace="256"
 set background=dark
 colorscheme Tomorrow-Night
-let g:airline_theme='gruvbox'
+let g:airline_theme='tomorrow'
 
 " setting colorscheme using env variables
 " execute "colorscheme ".$COLORSCHEME
