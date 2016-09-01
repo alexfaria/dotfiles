@@ -52,18 +52,18 @@ URxvt.scrollBar:           false
 
 URxvt*fading:              30
 
-URxvt.keysym.M-j:     perl:keyboard-select:activate
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.F11:          perl:fullscreen:switch
+URxvt.keysym.M-j:          perl:keyboard-select:activate
+! URxvt.keysym.M-c:          perl:clipboard:copy
+! URxvt.keysym.M-v:          perl:clipboard:paste
+! URxvt.keysym.M-C-v:        perl:clipboard:paste_escaped
+! URxvt.keysym.F11:          perl:fullscreen:switch
 
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger:  C-Up
 
-URxvt.url-launcher:        /usr/bin/chromium
+URxvt.url-launcher:        /usr/bin/google-chrome-stabe
 URxvt.keysym.M-Delete:     perl:matcher:list
 URxvt.colorUL:             #7780a1
 
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common:     default,keyboard-select
 
