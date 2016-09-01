@@ -20,7 +20,7 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git extract sudo virtualenv zsh-syntax-highlighting)
+plugins=(git extract archlinux sudo virtualenv zsh-syntax-highlighting)
 
 # User configuration
 
