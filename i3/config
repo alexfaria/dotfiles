@@ -161,6 +161,7 @@ exec synclient TapButton1=1
 exec_always setxkbmap pt
 exec_always feh --bg-scale /home/alex/Pictures/wallpaper2.png
 for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border normal
 
 gaps inner 10
 gaps outer 5
@@ -191,4 +192,5 @@ bindsym XF86AudioPrev exec playerctl previous
 for_window [class="Lxappearance"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Nam"] floating enable
 
