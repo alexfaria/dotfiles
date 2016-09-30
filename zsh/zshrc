@@ -57,6 +57,7 @@ alias nvimrc="nvim $DOTFILES/nvim/init.vim"
 alias tmuxrc="vim $DOTFILES/tmux/tmux.conf"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
 alias i3rc="vim $DOTFILES/i3/config"
+alias i3blocksrc="vim $DOTFILES/i3blocks.conf"
 
 alias sv="source $DOTFILES/zsh/zshrc"
 # alias bootwindows="sudo grub-reboot 'Windows Boot Manager (on /dev/sdb2)' && sudo reboot"
