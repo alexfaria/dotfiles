@@ -48,14 +48,15 @@ source $ZSH/oh-my-zsh.sh
 alias :q="exit"
 alias dot="cd $DOTFILES"
 
-alias vims="vim -S"
-# alias vim="nvim"
+# alias vims="vim -S"
+alias vim="nvim"
 alias tmux="tmux -2"
 alias zshrc="vim $DOTFILES/zsh/zshrc"
 alias vimrc="vim $DOTFILES/vimrc"
 alias nvimrc="nvim $DOTFILES/nvim/init.vim"
 alias tmuxrc="vim $DOTFILES/tmux/tmux.conf"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
+alias i3rc="vim $DOTFILES/i3/config"
 
 alias sv="source $DOTFILES/zsh/zshrc"
 # alias bootwindows="sudo grub-reboot 'Windows Boot Manager (on /dev/sdb2)' && sudo reboot"
