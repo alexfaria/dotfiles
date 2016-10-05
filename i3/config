@@ -159,7 +159,7 @@ bar {
 
 exec synclient TapButton1=1
 exec_always setxkbmap pt
-exec_always feh --bg-scale /home/alex/Pictures/wallpaper3.png
+exec_always feh --bg-scale /home/alex/Pictures/bear.png
 for_window [class="^.*"] border pixel 0
 # for_window [class="^.*"] border normal
 
