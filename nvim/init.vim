@@ -36,16 +36,18 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/gruvbox'
 Plug 'chriskempson/vim-tomorrow-theme'
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()            " required
 filetype plugin indent on    " required
 
 set t_Co=256
-" let base16colorspace="256"
+let base16colorspace="256"
 set background=dark
-colorscheme Tomorrow-Night
-let g:airline_theme='tomorrow'
+colorscheme base16-eighties
+let g:airline_theme='base16_eighties'
+" colorscheme Tomorrow-Night
+" let g:airline_theme='tomorrow'
 
 " setting colorscheme using env variables
 " execute "colorscheme ".$COLORSCHEME
