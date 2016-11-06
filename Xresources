@@ -1,13 +1,17 @@
 Xcursor.theme: DMZ-White
 
-URxvt.font:                xft:monospace:pixelsize=13
-URxvt.boldFont:            xft:monospace:pixelsize=13:bold
-URxvt.italicFont:          xft:monospace:pixelsize=13:italic
-URxvt.boldItalicFont:      xft:monospace:pixelsize=13:bold:italic
+/* URxvt.font:                xft:monospace:pixelsize=13 */
+/* URxvt.boldFont:            xft:monospace:pixelsize=13:bold */
+/* URxvt.italicFont:          xft:monospace:pixelsize=13:italic */
+/* URxvt.boldItalicFont:      xft:monospace:pixelsize=13:bold:italic */
+URxvt.font:                xft:monospace:size=12
+URxvt.boldFont:            xft:monospace:size=12:bold
+URxvt.italicFont:          xft:monospace:size=12:italic
+URxvt.boldItalicFont:      xft:monospace:size=12:bold:italic
 URxvt.letterSpace:         0
 URxvt.urgentOnBell:        false
 URxvt*visualBell:          true
-URxvt.geometry:            150x45
+URxvt.geometry:            100x30
 
 ! Base16 Eighties
 ! Scheme: Chris Kempson (http://chriskempson.com)
