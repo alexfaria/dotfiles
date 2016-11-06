@@ -5,7 +5,8 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 
 ZSH_CUSTOM=$DOTFILES/zsh/custom
-ZSH_THEME="honukai/honukai"
+# ZSH_THEME="honukai/honukai"
+ZSH_THEME="robbyrussell"
 
 # Base16 Shell
 export BASE16='eighties'
@@ -67,7 +68,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### VirtualEnvWrapper
 export WORKON_HOME=$HOME/.virtualenvs
-[[ -a /usr/local/bin/virtualenvwrapper.sh ]] &&  source /usr/local/bin/virtualenvwrapper.sh
+# [[ -a /usr/local/bin/virtualenvwrapper.sh ]] &&  source /usr/local/bin/virtualenvwrapper.sh
+source /usr/sbin/virtualenvwrapper.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
