@@ -17,7 +17,6 @@ cd $HOME
 [ -a .zshrc ] && mv .zshrc tmp/
 [ -d .config/nvim ] && mv .config/nvim tmp
 [ -d .config/i3 ] && mv .config/i3 tmp
-[ -d .config/fusuma ] && mv .config/fusuma tmp
 [ -a .eslintrc.json ] && mv .eslintrc.json tmp/
 [ -a .Xresources ] && mv .Xresources tmp/
 [ -a .yaourtrc ] && mv .yaourtrc tmp/
@@ -28,7 +27,6 @@ ln -s $dir/bash_aliases .bash_aliases
 ln -s $dir/tmux/tmux.conf .tmux.conf
 ln -s $dir/zsh/zshrc .zshrc
 ln -s $dir/nvim .config/nvim
-ln -s $dir/fusuma .config/fusuma
 ln -s $dir/i3 .config/i3
 ln -s $dir/eslintrc.json .eslintrc.json
 ln -s $dir/Xresources .Xresources
