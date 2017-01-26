@@ -21,6 +21,7 @@ cd $HOME
 [ -a .Xresources ] && mv .Xresources tmp/
 [ -a .yaourtrc ] && mv .yaourtrc tmp/
 [ -a .i3blocks.conf ] && mv .i3blocks.conf tmp/
+[ -a .config/libinput-gestures.conf ] && mv .config/libinput-gestures.conf tmp
 ln -s $dir/vimrc .vimrc
 ln -s $dir/vim .vim
 ln -s $dir/bash_aliases .bash_aliases
@@ -32,6 +33,7 @@ ln -s $dir/eslintrc.json .eslintrc.json
 ln -s $dir/Xresources .Xresources
 ln -s $dir/yaourtrc .yaourtrc
 ln -s $dir/urxvt .urxvt
+ln -s $dir/libinput-gestures.conf .config/libinput-gestures.conf
 # ln -s $dir/i3blocks.conf .i3blocks.conf
 
 if [ "$1" == "all" ]; then
