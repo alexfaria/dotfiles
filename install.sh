@@ -32,7 +32,6 @@ ln -s $dir/i3 .config/i3
 ln -s $dir/eslintrc.json .eslintrc.json
 ln -s $dir/Xresources .Xresources
 ln -s $dir/yaourtrc .yaourtrc
-ln -s $dir/urxvt .urxvt
 ln -s $dir/libinput-gestures.conf .config/libinput-gestures.conf
 # ln -s $dir/i3blocks.conf .i3blocks.conf
 
