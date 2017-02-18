@@ -29,7 +29,6 @@ Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': 'html' }
 Plug 'elzr/vim-json', { 'for': 'json' }
-
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " themes
