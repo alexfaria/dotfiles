@@ -11,6 +11,7 @@ cd $HOME
 [ ! -d $dir/vim/.tmp ] && mkdir $dir/vim/.tmp
 [ ! -d .config ] && mkdir .config
 [ -a .vimrc ] && mv .vimrc tmp/
+[ -a .emacs ] && mv .emacs tmp/
 [ -a .bash_aliases ] && mv .bash_aliases tmp/
 [ -a .vim ] && mv .vim tmp/
 [ -a .tmux.conf ] && mv .tmux.conf tmp/
@@ -23,6 +24,7 @@ cd $HOME
 [ -a .i3blocks.conf ] && mv .i3blocks.conf tmp/
 [ -a .config/libinput-gestures.conf ] && mv .config/libinput-gestures.conf tmp
 ln -s $dir/vimrc .vimrc
+ln -s $dir/emacs .emacs
 ln -s $dir/vim .vim
 ln -s $dir/bash_aliases .bash_aliases
 ln -s $dir/tmux/tmux.conf .tmux.conf
