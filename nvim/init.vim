@@ -22,6 +22,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " language-specific plugins
+Plug 'vim-polyglot'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'vim-scripts/Arduino-syntax-file', { 'for': 'arduino' }
+Plug 'coddingtonbear/neomake-platformio', { 'for': 'arduino' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
@@ -162,11 +166,12 @@ nmap <leader>p "+p
 nmap <leader>w :w!<cr>
 nmap <leader>T :enew<cr>
 nmap <leader>l :bnext<CR>
-nmap <leader>h :bprevious<CR>
+nmap <leader>k :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
-nmap <leader>fw :%s/\s\+$<cr>       " remove extra whitespace
+nmap <leader>fw :%s/\s\+$<CR>       " remove extra whitespace
+nmap <leader>tr :call #tablemode#table#Realign('.')<CR>  " vim-table-mode binding to realign the table
 
 set nu
 " relative number line
