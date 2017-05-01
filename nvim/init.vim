@@ -16,6 +16,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'
 
 " git integration
 Plug 'airblade/vim-gitgutter'
