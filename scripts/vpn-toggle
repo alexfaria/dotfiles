@@ -1,0 +1,11 @@
+#!/bin/bash
+
+VPN="laptop"
+
+if [[ $(nmcli con show --active) == *"${VPN}"* ]]; then
+  # its active; turn it off
+  nmcli con down "${VPN}"
+else
+  # its not active; turn it on
+  nmcli con up "${VPN}"
+fi
