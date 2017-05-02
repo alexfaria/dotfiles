@@ -43,6 +43,8 @@ call plug#end()            " required
 filetype plugin indent on    " required
 
 colorscheme molokai
+let g:rehash256 = 1
+let g:molokai_original = 1
 let g:airline_theme="molokai"
 
 " toggle invisible characters
