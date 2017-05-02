@@ -5,23 +5,15 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh/oh-my-zsh
 
 ZSH_CUSTOM=$DOTFILES/zsh/custom
-# ZSH_THEME="honukai/honukai"
 ZSH_THEME="robbyrussell"
 
-# Base16 Shell
-export BASE16='eighties'
-export COLORSCHEME="base16-${BASE16}"
-export AIRLINE_THEME="base16_${BASE16}"
-BASE16_SHELL="$DOTFILES/base16-shell/base16-$BASE16.dark.sh"
-[[ -s $BASE16_SHELL  ]] && source $BASE16_SHELL
-
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compose npm autoenv)
+plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compose npm)
 
 # User configuration
 
@@ -31,20 +23,20 @@ export PATH="/home/alex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/s
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 alias :q="exit"
 alias dot="cd $DOTFILES"
