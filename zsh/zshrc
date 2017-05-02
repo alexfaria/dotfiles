@@ -21,7 +21,7 @@ ENABLE_CORRECTION="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git extract archlinux sudo virtualenv zsh-syntax-highlighting)
+plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compose npm autoenv)
 
 # User configuration
 
@@ -62,11 +62,6 @@ alias i3blocksrc="vim $DOTFILES/i3blocks.conf"
 alias pacexpac="expac -H M \"%011m\t%-20n\t%10d\" \$(comm -23 <(pacman -Qqen | sort) <(pacman -Qqg base base-devel | sort)) | sort -n"
 
 alias sv="source $DOTFILES/zsh/zshrc"
-
-### autoenv
-source /usr/share/autoenv/activate.sh
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
   exec startx
