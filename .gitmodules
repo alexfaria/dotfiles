@@ -22,9 +22,6 @@
 [submodule "zsh/custom/honukai-iterm-zsh"]
 	path = zsh/custom/honukai
 	url = https://github.com/oskarkrawczyk/honukai-iterm-zsh
-[submodule "base16-shell"]
-	path = base16-shell
-	url = https://github.com/chriskempson/base16-shell
 [submodule "zsh/custom/dracula"]
 	path = zsh/custom/dracula
 	url = https://github.com/dracula/zsh.git
