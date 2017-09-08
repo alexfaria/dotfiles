@@ -1,10 +1,9 @@
 vim/.vim/.tmp
-vim/.vim/.undodir
+vim/.vim/.undodir/*
 vim/.vim/.netrwhist
-vim/.vim/plugged
+vim/.vim/plugged/*
 vim/.vim/autoload
 nvim/.config/nvim/.netrwhist
-nvim/.config/nvim/plugged
-nvim/.config/nvim/yaboi
+nvim/.config/nvim/plugged/*
 zsh/custom/promptline.zsh-theme
 
