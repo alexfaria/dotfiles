@@ -2,7 +2,8 @@
 export TERM="xterm-256color"
 export EDITOR="nvim"
 export DOTFILES=$HOME/.dotfiles
-export ZSH=$DOTFILES/zsh/oh-my-zsh
+# export ZSH=$DOTFILES/zsh/oh-my-zsh
+export ZSH=/home/alex/.oh-my-zsh
 
 ZSH_CUSTOM=$DOTFILES/zsh/custom
 ZSH_THEME="robbyrussell"
@@ -41,19 +42,16 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias :q="exit"
 alias dot="cd $DOTFILES"
 
-# alias vims="vim -S"
-alias vim="nvim"
 alias tmux="tmux -2"
-alias zshrc="vim $DOTFILES/zsh/zshrc"
-alias vimrc="vim $DOTFILES/vimrc"
-alias nvimrc="nvim $DOTFILES/nvim/init.vim"
-alias tmuxrc="vim $DOTFILES/tmux/tmux.conf"
+alias zshrc="vim $HOME/.zshrc"
+alias vimrc="vim $HOME/.vimrc"
+alias nvimrc="nvim $HOME/.config/nvim/init.vim"
+alias tmuxrc="vim $HOME/.tmux.conf"
+alias i3rc="vim $HOME/.config/i3/config"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
-alias i3rc="vim $DOTFILES/i3/config"
-alias i3blocksrc="vim $DOTFILES/i3blocks.conf"
 alias pacexpac="expac -H M \"%011m\t%-20n\t%10d\" \$(comm -23 <(pacman -Qqen | sort) <(pacman -Qqg base base-devel | sort)) | sort -n"
 
-alias sv="source $DOTFILES/zsh/zshrc"
+alias sv="source $HOME/.zshrc"
 
 if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
   exec startx
