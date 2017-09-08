@@ -18,7 +18,7 @@ plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compos
 
 # User configuration
 
-export PATH="/home/alex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/alex/.gem/ruby/2.3.0/bin"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
