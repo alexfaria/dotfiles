@@ -3,7 +3,7 @@ export PATH="~/bin:$PATH"
 export DOTFILES=~/.dotfiles
 
 git submodule update --init --recursive
-stow vim tmux zsh xresources yaourt nvim i3 libinput-gestures
+stow vim tmux zsh xresources yaourt nvim i3 libinput-gestures git
 
 echo "Install vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
