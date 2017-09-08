@@ -1,6 +1,7 @@
 # from https://gist.github.com/pksunkara/988716
 [user]
 	name = Alex Faria
+	email = simaofaria@hotmail.com
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
