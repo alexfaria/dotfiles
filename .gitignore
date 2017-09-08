@@ -1,9 +1,10 @@
-nvim/undodir
-vim/.tmp
-vim/.netrwhist
-nvim/.netrwhist
-nvim/plugged
-vim/bundle/*
-!vim/bundle/Vundle.vim
+vim/.vim/.tmp
+vim/.vim/.undodir
+vim/.vim/.netrwhist
+vim/.vim/plugged
+vim/.vim/autoload
+nvim/.config/nvim/.netrwhist
+nvim/.config/nvim/plugged
+nvim/.config/nvim/yaboi
 zsh/custom/promptline.zsh-theme
 

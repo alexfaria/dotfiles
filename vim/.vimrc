@@ -1,61 +1,51 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype plugin indent on
 
-if has("win32") || has("win64")
-    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$USERPROFILE/vimfiles/bundle/')
-else
-    set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
-    call vundle#begin()
-endif
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'alvan/vim-closetag'     " close (x)html tag
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'edkolev/promptline.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'ervandew/supertab'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'godlygeek/tabular'
+Plug 'groenewege/vim-less'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'mattn/emmet-vim'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'alvan/vim-closetag'     " close (x)html tag
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'edkolev/promptline.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'ervandew/supertab'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'godlygeek/tabular'
-Plugin 'groenewege/vim-less'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'mattn/emmet-vim'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
-
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " themes
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'scwood/vim-hybrid'
-Plugin 'sickill/vim-monokai'
-Plugin 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 syntax enable   " enable syntax highlighting
 set t_Co=256
 let base16colorspace="256"
 set background=dark
-execute "colorscheme ".$COLORSCHEME
-let g:airline_theme=$AIRLINE_THEME
+colorscheme molokai
+let g:rehash256 = 1
+let g:molokai_original = 1
+let g:airline_theme="molokai"
 
-set list          " Display unprintable characters f12 - switches
-set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
+" set list          " Display unprintable characters f12 - switches
+" set listchars=tab:•\ ,trail:•,extends:»,precedes:« " Unprintable chars mapping
 
 if has("gui_running")
     set guioptions-=m  "remove menu bar
@@ -92,7 +82,7 @@ set autoindent  " indent when moving to the next line while writing code
 set noerrorbells                " No error bells please
 set timeoutlen=500              " keypress timeout
 set laststatus=2
-" set clipboard=unnamedplus           " use system clipboard by default
+set clipboard=unnamedplus           " use system clipboard by default
 set wildignore=*.o,*~,*.pyc     " ignore compiled files
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode"
 let python_highlight_all = 1
@@ -101,6 +91,9 @@ set expandtab   " expand tabs into spaces
 set shiftwidth=2
 set softtabstop=2               " number of spaces in tab editing
 set tabstop=2
+" undo after closing a file
+set undofile
+set undodir=$HOME/.vim/.undodir
 "  backup
 set backup
 set backupdir=$HOME/.vim/.tmp
