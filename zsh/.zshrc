@@ -21,6 +21,8 @@ plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compos
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export PATH="$HOME/bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
