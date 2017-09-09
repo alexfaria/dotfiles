@@ -92,6 +92,11 @@ set shiftwidth=2
 set softtabstop=2               " number of spaces in tab editing
 set tabstop=2
 " undo after closing a file
+"
+if isdirectory($HOME . '/.vim/.tmp') == 0
+  call mkdir($HOME . '/.vim/.tmp')
+endif
+
 set undofile
 set undodir=$HOME/.vim/.tmp
 "  backup
@@ -99,6 +104,7 @@ set backup
 set backupdir=$HOME/.vim/.tmp
 set directory=$HOME/.vim/.tmp " Don't clutter my dirs up with swp and tmp files"
 " set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
+
 
 let mapleader=","
 let maplocalleader="\\"
