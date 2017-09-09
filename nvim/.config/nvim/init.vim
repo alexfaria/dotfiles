@@ -91,7 +91,7 @@ set tabstop=2
 
 " undo after closing a file
 set undofile
-set undodir=$HOME/.vim/.undodir
+set undodir=$HOME/.vim/.tmp
 "  backup
 set backup
 set backupdir=$HOME/.vim/.tmp
