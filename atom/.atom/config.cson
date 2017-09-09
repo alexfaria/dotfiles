@@ -1,0 +1,14 @@
+"*":
+  core:
+    autoHideMenuBar: true
+    telemetryConsent: "no"
+  editor:
+    fontFamily: "Hack"
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "bcc7b6c5-5583-423e-9526-ea5693aab25a"
+  welcome:
+    showOnStartup: false
