@@ -1,3 +1,16 @@
+
+"scrot -s ~/tmp/screenshot.png && xclip -selection clipboard -t image/png -i ~/tmp/screenshot.png"
+  Alt + Alt_L + s
+
+"scrot ~/tmp/screenshot.png && xclip -selection clipboard -t image/png -i ~/tmp/screenshot.png"
+  Mod1 + Shift + Shift_L + s
+
+"rofi -show run"
+  Mod4 + d
+
+"gnome-terminal"
+  Control + Mod1 + t
+
 # For the benefit of emacs users: -*- shell-script -*-
 ###########################
 # xbindkeys configuration #
