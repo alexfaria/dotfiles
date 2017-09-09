@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/alex/.oh-my-zsh
 export TERM="xterm-256color"
 export EDITOR="nvim"
-export DOTFILES=$HOME/.dotfiles
-# export ZSH=$DOTFILES/zsh/oh-my-zsh
 export ZSH=/home/alex/.oh-my-zsh
 
 ZSH_CUSTOM=$DOTFILES/zsh/custom
