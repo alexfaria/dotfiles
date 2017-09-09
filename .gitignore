@@ -11,4 +11,5 @@ vim/.vim/plugged
 vim/.vim/autoload
 nvim/.config/nvim/.netrwhist
 nvim/.config/nvim/plugged
-
+mpd/.config/mpd/*
+!mpd/.config/mpd/mpd.conf
