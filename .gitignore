@@ -1,3 +1,9 @@
+atom/.atom/*
+!atom/.atom/init.coffee
+!atom/.atom/config.cson
+!atom/.atom/snippets.cson
+!atom/.atom/styles.less
+!atom/.atom/keymap.cson
 vim/.vim/.tmp
 vim/.vim/.undodir
 vim/.vim/.netrwhist
