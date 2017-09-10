@@ -164,7 +164,6 @@ bar {
 }
 
 exec synclient TapButton1=1
-exec_always xrdb -I/home/alex/.dotfiles .Xresources
 exec --no-startup-id nm-applet --sm-disable
 # exec mpd
 exec_always setxkbmap pt
@@ -204,7 +203,5 @@ for_window [class="Nam"] floating enable
 
 
 # Print screen: full | select window or rectangle
-bindsym --release $alt+s exec scrot -s ~/tmp/screenshot.png &&\
- xclip -selection clipboard -t image/png -i ~/tmp/screenshot.png
-bindsym --release $alt+Shift+s exec scrot ~/tmp/screenshot.png &&\
-xclip -selection clipboard -t image/png -i ~/tmp/screenshot.png
+bindsym --release $alt+s exec scrot -s ~/tmp/screenshot.png && xclip -selection clipboard -t image/png -i ~/tmp/screenshot.png
+bindsym --release $alt+Shift+s exec scrot ~/tmp/screenshot.png && xclip -selection clipboard -t image/png -i ~/tmp/screenshot.png
