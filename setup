@@ -3,7 +3,19 @@ set -e
 export DOTFILES=~/.dotfiles
 
 git submodule update --init --recursive
-stow vim tmux zsh xresources yaourt nvim i3 libinput-gestures git bash bin
+
+stow zsh
+stow vim
+stow nvim
+stow i3
+stow bin
+stow tmux
+stow xresources
+stow yaourt
+stow libinput-gestures
+stow git
+stow bash
+# sudo stow -t / xorg
 
 echo "Install vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
