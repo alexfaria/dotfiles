@@ -91,13 +91,11 @@ set tabstop=2
 
 " undo after closing a file
 set undofile
-set undodir=$HOME/.config/nvim/.tmp
-" backup
 set backup
-set backupdir=$HOME/.config/nvim/.tmp
-set directory=$HOME/.config/nvim/.tmp " Don't clutter my dirs up with swp and tmp files"
+set undodir=/tmp
+set backupdir=/tmp
+set directory=/tmp " Don't clutter my dirs up with swp and tmp files"
 " set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
-
 
 let mapleader=","
 let maplocalleader="\\"
