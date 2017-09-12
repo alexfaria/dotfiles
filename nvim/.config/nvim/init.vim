@@ -23,7 +23,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " language-specific plugins
-Plug 'vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-scripts/Arduino-syntax-file', { 'for': 'arduino' }
 Plug 'coddingtonbear/neomake-platformio', { 'for': 'arduino' }
