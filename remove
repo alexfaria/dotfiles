@@ -1,0 +1,16 @@
+stow -D atom
+stow -D bash
+stow -D bin
+stow -D eslint
+stow -D git
+stow -D i3
+stow -D libinput-gestures
+stow -D mpd
+stow -D nvim
+stow -D spacemacs
+stow -D tmux
+stow -D vim
+stow -D xbindkeys
+stow -D xorg
+stow -D yaourt
+stow -D zsh
