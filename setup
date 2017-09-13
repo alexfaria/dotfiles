@@ -10,7 +10,6 @@ stow nvim
 stow i3
 stow bin
 stow tmux
-stow xresources
 stow yaourt
 stow libinput-gestures
 stow git

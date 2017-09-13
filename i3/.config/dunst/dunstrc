@@ -24,7 +24,7 @@
     startup_notification = false
     show_indicators = no
     dmenu = /usr/bin/dmenu -p dunst
-    browser = /usr/bin/google-chrome-beta -new-tab
+    browser = /usr/bin/google-chrome-stable -new-tab
     icon_position = left
     icon_folders = /usr/share/icons/Notifications
 
@@ -54,7 +54,7 @@
     timeout = 5
 
 [Discord]
-    appname = Discord Canary
+    appname = Discord
     format = "<b>%s</b>\n%b"
     new_icon = Discord
 
