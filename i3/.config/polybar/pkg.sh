@@ -1,4 +1,6 @@
 #!/bin/bash
+export TERM="xterm-256color"
+
 pac=$(checkupdates | wc -l)
 aur=$(yaourt -Qqu -a| wc -l)
 
