@@ -6,10 +6,8 @@ margin-top = 5
 margin-bottom = 5
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
@@ -24,9 +22,9 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 font-0 = Hack:pixelsize=10;0
 font-1 = FontAwesome:size=10;0
-modules-left = i3
-modules-center = date mpd 
-modules-right = pkg volume battery
+modules-left = i3 mpd
+modules-center = xwindow
+modules-right = pkg volume battery date
 tray-position = right
 tray-padding = 2
 scroll-up = i3wm-wsnext
@@ -64,6 +62,10 @@ label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
+[module/xwindow]
+type = internal/xwindow
+label-maxlen = 40
+
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <toggle> <icon-next>
@@ -72,8 +74,8 @@ icon-stop = 
 icon-play = 
 icon-pause = 
 icon-next = 
-label-song = %title%
-label-song-maxlen = 20
+label-song = %artist% - %title%
+label-song-maxlen = 50
 label-song-ellipsis = true
 
 [module/xbacklight]
@@ -123,7 +125,7 @@ label =  %date% %time%
 
 [module/volume]
 type = custom/script
-interval = 2
+interval = 0.5
 label = %output%
 exec = ~/.config/polybar/pavolume.sh
 click-right = exec pavucontrol
