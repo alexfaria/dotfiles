@@ -78,7 +78,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock the screen
-bindsym $mod+shift+x exec ~/bin/lock.sh
+# bindsym $mod+shift+x exec ~/bin/lock.sh
+bindsym $mod+shift+x exec i3lock-fancy -gp
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -219,8 +220,16 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # set they keyboard map
 exec_always --no-startup-id setxkbmap pt
 
+# xautolock
+# exec_always --no-startup-id xautolock -locker i3lock-fancy &
+
+# start cmus and cava on $workspace10
+exec --no-startup-id i3-msg 'workspace $workspace10; exec urxvt -e zsh -c cava; exec urxvt -e zsh -c cmus; workspace $workspace1'
+workspace $workspace10 gaps outer 200
+workspace $workspace10 gaps inner 50
+
 # start mpd
-exec --no-startup-id mpd
+# exec --no-startup-id mpd
 
 # start nm-applet
 exec --no-startup-id nm-applet --sm-disable
