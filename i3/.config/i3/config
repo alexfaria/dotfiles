@@ -19,7 +19,8 @@ bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $alt+Tab exec --no-startup-id rofi -show window
-bindsym $mod+d exec --no-startup-id rofi -show run
+# bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
 
 # change focus
 bindsym $mod+h focus left
@@ -101,16 +102,16 @@ bindsym $alt+Shift+s --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png
 # select window or rectangle for printscreen
 bindsym $alt+s --release       exec "scrot    /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: 3"
+set $workspace4 "4: 4"
+set $workspace5 "5: 5"
+set $workspace6 "6: 6"
+set $workspace7 "7: 7"
+set $workspace8 "8: 8"
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -215,7 +216,7 @@ exec_always --no-startup-id compton -b -c
 exec_always --no-startup-id ~/.fehbg
 
 # start polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # set they keyboard map
 exec_always --no-startup-id setxkbmap pt
@@ -228,8 +229,10 @@ exec --no-startup-id i3-msg 'workspace $workspace10; exec urxvt -e zsh -c cava; 
 workspace $workspace10 gaps outer 200
 workspace $workspace10 gaps inner 50
 
-# start mpd
-# exec --no-startup-id mpd
+# start discord and telegram-desktop
+exec --no-startup-id i3-msg 'workspace $workspace9; exec discord; exec telegram-desktop; workspace $workspace1'
+workspace $workspace9 gaps outer 20
+workspace $workspace9 gaps inner 50
 
 # start nm-applet
 exec --no-startup-id nm-applet --sm-disable
