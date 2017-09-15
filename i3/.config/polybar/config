@@ -80,16 +80,18 @@ click-left = cmus-remote --pause
 click-right = cmuse-remote --stop
 
 [module/cmus-next]
-exec = echo 
-label = 
 type = custom/script
+label = 
+interval = 1
+exec = echo 
 exec-if = pgrep -x cmus
 click-left = cmus-remote --next
 
 [module/cmus-prev]
-exec = echo 
-label = 
 type = custom/script
+label = 
+interval = 1
+exec = echo 
 exec-if = pgrep -x cmus
 click-left = cmus-remote --prev
 
