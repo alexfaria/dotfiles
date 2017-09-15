@@ -104,7 +104,7 @@ bindsym $alt+s --release       exec "scrot    /tmp/screenshot-$(date +%F_%T).png
 
 set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: 3"
+set $workspace3 "3: "
 set $workspace4 "4: 4"
 set $workspace5 "5: 5"
 set $workspace6 "6: 6"
@@ -230,9 +230,9 @@ workspace $workspace10 gaps outer 200
 workspace $workspace10 gaps inner 50
 
 # start discord and telegram-desktop
-exec --no-startup-id i3-msg 'workspace $workspace9; exec discord; exec telegram-desktop; workspace $workspace1'
-workspace $workspace9 gaps outer 20
-workspace $workspace9 gaps inner 50
+# exec --no-startup-id i3-msg 'workspace $workspace9; exec discord; exec telegram-desktop; workspace $workspace1'
+# workspace $workspace9 gaps outer 20
+# workspace $workspace9 gaps inner 50
 
 # start nm-applet
 exec --no-startup-id nm-applet --sm-disable
