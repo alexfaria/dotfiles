@@ -22,7 +22,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 font-0 = Hack:pixelsize=10;0
 font-1 = FontAwesome:size=10;0
-modules-left = i3 mpd
+modules-left = i3 cmus cmus-prev cmus-next
 modules-center = xwindow
 modules-right = pkg volume battery date
 tray-position = right
@@ -38,8 +38,11 @@ module-margin-right = 2
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
+strip-wsnumbers = true
 index-sort = true
 wrapping-scroll = false
+
+label = %name%
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
@@ -49,16 +52,17 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+; label-focused = %index%
+label-focused = ${self.label}
 label-focused-background = ${colors.background-alt}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = ${self.label}
 label-unfocused-padding = 1
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = ${self.label}
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 1
 
@@ -66,52 +70,28 @@ label-urgent-padding = 1
 type = internal/xwindow
 label-maxlen = 40
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <toggle> <icon-next>
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-label-song = %artist% - %title%
-label-song-maxlen = 50
-label-song-ellipsis = true
-
-[module/xbacklight]
-type = internal/xbacklight
-format = <label>
-label =  %percentage%%
-
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format = <label>
-label =  %percentage%%
-
-[module/memory]
-type = internal/memory
+[module/cmus]
+type = custom/script
+; format-prefix = " "
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
 interval = 1
-format = <label>
-label =  %gb_used% (%percentage_used%%)
+click-left = cmus-remote --pause
+click-right = cmuse-remote --stop
 
+[module/cmus-next]
+exec = echo 
+label = 
+type = custom/script
+exec-if = pgrep -x cmus
+click-left = cmus-remote --next
 
-; [module/wlan]
-; type = internal/network
-; interface = wlp1s0
-; format-connected = <label-connected>
-; format-connected-padding = 2
-; format-disconnected = <label-disconnected>
-; format-disconnected-padding = 2
-; label-connected =  %essid%
-; label-disconnected =  None
-
+[module/cmus-prev]
+exec = echo 
+label = 
+type = custom/script
+exec-if = pgrep -x cmus
+click-left = cmus-remote --prev
 
 [module/date]
 type = internal/date
@@ -143,8 +123,8 @@ poll-interval = 5
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
-label-charging = %percentage%%
 time-format = %H:%M
+label-charging = %percentage%% (%time%)
 label-discharging = %percentage%% (%time%)
 label-full = %percentage%%
 ramp-capacity-0 = 
@@ -159,65 +139,113 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 500
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
-
-[module/powermenu]
-type = custom/menu
-label-open =   
-label-close = cancel
-label-close-background = #312842
-label-close-foreground = #ffeefc
-label-close-padding = 3
-menu-0-0 = lock
-menu-0-0-exec = ~/scripts/lock.sh
-menu-0-0-background = #312842
-menu-0-0-foreground = #c05c47
-menu-0-0-padding-right = 3
-menu-0-1 = reboot
-menu-0-1-exec = menu-open-1
-menu-0-1-background = #312842
-menu-0-1-foreground = #c05c47
-menu-0-1-padding-right = 3
-menu-0-2 = power off
-menu-0-2-exec = menu-open-2
-menu-0-2-background = #312842
-menu-0-2-foreground = #c05c47
-menu-0-2-padding-right = 3
-menu-1-0 = reboot?  
-menu-1-0-exec = reboot
-menu-1-0-background = #312842
-menu-1-0-foreground = #e4b226
-menu-1-0-padding-right = 3
-menu-2-0 = power off?  
-menu-2-0-exec = poweroff
-menu-2-0-background = #312842
-menu-2-0-foreground = #e4b226
-menu-2-0-padding-right = 3
-
 [module/pkg]
 type = custom/script
 interval = 1200
 format = <label>
-;format-underline = #dc322f
 label = "%output:0:30%"
 exec = ~/.config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+click-left = exec urxvt -e "zsh -c 'yaourt -Suya'" &
+;format-underline = #dc322f
+
+; [module/mpd]
+; type = internal/mpd
+; format-online = <label-song>  <icon-prev> <toggle> <icon-next>
+; icon-prev = 
+; icon-stop = 
+; icon-play = 
+; icon-pause = 
+; icon-next = 
+; label-song = %artist% - %title%
+; label-song-maxlen = 50
+; label-song-ellipsis = true
+
+; [module/xbacklight]
+; type = internal/xbacklight
+; format = <label>
+; label =  %percentage%%
+
+
+; [module/backlight-acpi]
+; inherit = module/xbacklight
+; type = internal/backlight
+; card = intel_backlight
+
+; [module/cpu]
+; type = internal/cpu
+; interval = 2
+; format = <label>
+; label =  %percentage%%
+
+; [module/memory]
+; type = internal/memory
+; interval = 1
+; format = <label>
+; label =  %gb_used% (%percentage_used%%)
+
+
+; [module/wlan]
+; type = internal/network
+; interface = wlp1s0
+; format-connected = <label-connected>
+; format-connected-padding = 2
+; format-disconnected = <label-disconnected>
+; format-disconnected-padding = 2
+; label-connected =  %essid%
+; label-disconnected =  None
+
+
+; [module/temperature]
+; type = internal/temperature
+; thermal-zone = 0
+; warn-temperature = 60
+
+; format = <ramp> <label>
+; format-underline = #f50a4d
+; format-warn = <ramp> <label-warn>
+; format-warn-underline = ${self.format-underline}
+
+; label = %temperature%
+; label-warn = %temperature%
+; label-warn-foreground = ${colors.secondary}
+
+; ramp-0 = 
+; ramp-1 = 
+; ramp-2 = 
+; ramp-foreground = ${colors.foreground-alt}
+
+; [module/powermenu]
+; type = custom/menu
+; label-open =   
+; label-close = cancel
+; label-close-background = #312842
+; label-close-foreground = #ffeefc
+; label-close-padding = 3
+; menu-0-0 = lock
+; menu-0-0-exec = ~/scripts/lock.sh
+; menu-0-0-background = #312842
+; menu-0-0-foreground = #c05c47
+; menu-0-0-padding-right = 3
+; menu-0-1 = reboot
+; menu-0-1-exec = menu-open-1
+; menu-0-1-background = #312842
+; menu-0-1-foreground = #c05c47
+; menu-0-1-padding-right = 3
+; menu-0-2 = power off
+; menu-0-2-exec = menu-open-2
+; menu-0-2-background = #312842
+; menu-0-2-foreground = #c05c47
+; menu-0-2-padding-right = 3
+; menu-1-0 = reboot?  
+; menu-1-0-exec = reboot
+; menu-1-0-background = #312842
+; menu-1-0-foreground = #e4b226
+; menu-1-0-padding-right = 3
+; menu-2-0 = power off?  
+; menu-2-0-exec = poweroff
+; menu-2-0-background = #312842
+; menu-2-0-foreground = #e4b226
+; menu-2-0-padding-right = 3
 
 ; vim:ft=dosini
