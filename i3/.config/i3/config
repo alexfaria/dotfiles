@@ -1,5 +1,8 @@
+# i3 config file (v4)
 set $mod Mod4
 set $alt Mod1
+
+exec --no-startup-id xrdb -load ~/.Xresources
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -7,6 +10,26 @@ set $alt Mod1
 # font pango:Ubuntu Regular 8
 # font pango:Hack Regular 8
 font pango:DejaVu Sans Mono 8
+
+
+# colours
+
+set_from_resource $base00 color0  #263238
+set_from_resource $base01 color18 #2C393F
+set_from_resource $base02 color19 #37474F
+set_from_resource $base03 color8  #707880
+set_from_resource $base04 color20 #C9CCD3
+set_from_resource $base05 color7  #CDD3DE
+set_from_resource $base06 color21 #D5DBE5
+set_from_resource $base07 color15 #FFFFFF
+set_from_resource $base08 color1  #EC5F67
+set_from_resource $base09 color16 #EA9560
+set_from_resource $base0A color11 #FFCC00
+set_from_resource $base0B color10 #8BD649
+set_from_resource $base0C color14 #80CBC4
+set_from_resource $base0D color12 #89DDFF
+set_from_resource $base0E color13 #82AAFF
+set_from_resource $base0F color17 #EC5F67
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -76,42 +99,43 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id $HOME/bin/shutdown_menu
 
 # lock the screen
 # bindsym $mod+shift+x exec ~/bin/lock.sh
-bindsym $mod+shift+x exec i3lock-fancy -gp
+bindsym $mod+shift+x exec i3lock-fancy -gp -- scrot -z
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay  exec --no-startup-id playerctl play & mpc play
-bindsym XF86AudioPause exec --no-startup-id playerctl pause & mpc pause
-bindsym XF86AudioNext  exec --no-startup-id playerctl next & mpc next
-bindsym XF86AudioPrev  exec --no-startup-id playerctl previous & mpc prev
+bindsym XF86AudioPlay  exec --no-startup-id playerctl play & mpc play & cmus-remote -u
+bindsym XF86AudioPause exec --no-startup-id playerctl pause & mpc pause & cmus-remote -u
+bindsym XF86AudioNext  exec --no-startup-id playerctl next & mpc next & cmus-remote --next
+bindsym XF86AudioPrev  exec --no-startup-id playerctl previous & mpc prev & cmus-remote --prev
 
 # full printscreen
 bindsym $alt+Shift+s --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # select window or rectangle for printscreen
 bindsym $alt+s --release       exec "scrot    /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: 4"
-set $workspace5 "5: 5"
-set $workspace6 "6: 6"
-set $workspace7 "7: 7"
-set $workspace8 "8: 8"
-set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace1 "1:"
+set $workspace2 "2:"
+set $workspace3 "3:"
+set $workspace4 "4:"
+set $workspace5 "5:"
+set $workspace6 "6:6"
+set $workspace7 "7:7"
+set $workspace8 "8:"
+set $workspace9 "9:"
+set $workspace10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -191,10 +215,42 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Basic bar configuration using the Base16 variables.
+bar {
+    status_command i3blocks
+    position top
+    font pango:Hack 10, Font Awesome 10
+    strip_workspace_numbers yes
+
+    colors {
+        background $base00
+        separator  $base01
+        statusline $base04
+
+        # State             Border  BG      Text
+        focused_workspace   $base0D $base0D $base00
+        active_workspace    $base03 $base03 $base00
+        inactive_workspace  $base01 $base01 $base05
+        urgent_workspace    $base08 $base08 $base00
+        binding_mode        $base0A $base0A $base00
+    }
+}
+
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
 
 # remove borders
-for_window [class="^.*"] border pixel 0
-# for_window [class="^.*"] border normal
+# for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
+
+hide_edge_borders smart
 
 # gaps
 gaps inner 10
@@ -208,15 +264,17 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Nam"] floating enable
+for_window [class="TelegramDesktop"] floating enable
+for_window [class="VirtualBox"] floating enable
 
 # start compton
-exec_always --no-startup-id compton -b -c
+exec_always --no-startup-id compton -f -b -c --xrender-sync --xrender-sync-fence
 
 # set wallpaper
 exec_always --no-startup-id ~/.fehbg
 
 # start polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # set they keyboard map
 exec_always --no-startup-id setxkbmap pt
@@ -224,15 +282,30 @@ exec_always --no-startup-id setxkbmap pt
 # xautolock
 # exec_always --no-startup-id xautolock -locker i3lock-fancy &
 
-# start cmus and cava on $workspace10
-exec --no-startup-id i3-msg 'workspace $workspace10; exec urxvt -e zsh -c cava; exec urxvt -e zsh -c cmus; workspace $workspace1'
+assign [class="Google-chrome"] $workspace1
+assign [class="mpv"] $workspace3
+assign [class="VirtualBox"] $workspace5
+assign [class="KeeWeb"] $workspace8
+assign [class="discord"] $workspace9
+assign [class="TelegramDesktop"] $workspace9
+assign [class="URxvt" instance="cmus"] $workspace10
+assign [class="URxvt" instance="cava"] $workspace10
+
 workspace $workspace10 gaps outer 200
 workspace $workspace10 gaps inner 50
 
 # start discord and telegram-desktop
-# exec --no-startup-id i3-msg 'workspace $workspace9; exec discord; exec telegram-desktop; workspace $workspace1'
-# workspace $workspace9 gaps outer 20
-# workspace $workspace9 gaps inner 50
+workspace $workspace9 gaps outer 20
+workspace $workspace9 gaps inner 50
 
-# start nm-applet
+
+# start programs
 exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id urxvt -name cava -e zsh -c cava
+exec --no-startup-id urxvt -name cmus -e zsh -c cmus
+exec --no-startup-id telegram-desktop
+exec --no-startup-id syncthing-gtk
+exec --no-startup-id KeeWeb
+exec --no-startup-id libinput-gestures
+# exec --no-startup-id discord
+
