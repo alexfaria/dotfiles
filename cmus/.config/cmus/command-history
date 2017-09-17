@@ -1,0 +1,31 @@
+save
+set status_display_program=/home/alex/.config/cmus/notify_update.py
+set status_display_program=/home/alex/.config/cmus/update_notify.py
+set status_display_program=/home/alex/.config/cmus/update_notify.sh
+live-filter 
+set status_display_program=/home/alex/.cmus/update_i3blocks.sh
+run ~/.cmus/status_display_notify_send.sh
+run cmus
+run status_display_notify_send.sh
+run status
+set status_display_program=/home/alex/.cmus/status_display_notify_send.sh
+run cmus_status.py
+runkj
+set status_display_program=/home/alex/.cmus/cmus_status.py
+live-filter Royal
+shell cmus_status.py
+shell ~/.cmus/cmus_status.py
+shell zsh
+shell
+shel
+!.cmus/cmus_status.py
+!./~/.cmus/cmus_statys.py
+!
+set status_display_program=~/.cmus/cmus_status.py
+set status_display_program=~/.cmus/cmus_desktop_notify.py
+colorscheme itunes-like
+live-filter
+live-filter Hotline Miami
+live-filter hotline
+live-filter Royal Blood
+add ~/Music
