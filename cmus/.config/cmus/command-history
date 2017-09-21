@@ -1,4 +1,5 @@
 save
+set status_display_program=/home/alex/.config/cmus/cmus_status.sh
 set status_display_program=/home/alex/.config/cmus/notify_update.py
 set status_display_program=/home/alex/.config/cmus/update_notify.py
 set status_display_program=/home/alex/.config/cmus/update_notify.sh
