@@ -81,7 +81,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -104,7 +104,8 @@ bindsym $mod+Shift+e exec --no-startup-id $HOME/bin/shutdown_menu
 
 # lock the screen
 # bindsym $mod+shift+x exec ~/bin/lock.sh
-bindsym $mod+shift+x exec i3lock-fancy -gp -- scrot -z
+# bindsym $mod+shift+x exec i3lock-fancy -gp -- scrot -z
+bindsym $mod+shift+x exec --no-startup-id dm-tool lock
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh #increase sound volume
@@ -116,8 +117,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay  exec --no-startup-id playerctl play & mpc play & cmus-remote -u
-bindsym XF86AudioPause exec --no-startup-id playerctl pause & mpc pause & cmus-remote -u
+bindsym XF86AudioPlay  exec --no-startup-id playerctl play & mpc toggle & cmus-remote -u
+bindsym XF86AudioPause exec --no-startup-id playerctl pause & mpc toggle & cmus-remote -u
 bindsym XF86AudioNext  exec --no-startup-id playerctl next & mpc next & cmus-remote --next
 bindsym XF86AudioPrev  exec --no-startup-id playerctl previous & mpc prev & cmus-remote --prev
 
@@ -126,12 +127,15 @@ bindsym $alt+Shift+s --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png
 # select window or rectangle for printscreen
 bindsym $alt+s --release       exec "scrot    /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
+# open ranger
+bindsym $mod+e exec --no-startup-id urxvt -name ranger -e zsh -c ranger
+
 set $workspace1 "1:"
 set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
 set $workspace5 "5:"
-set $workspace6 "6:6"
+set $workspace6 "6:"
 set $workspace7 "7:7"
 set $workspace8 "8:"
 set $workspace9 "9:"
@@ -216,25 +220,26 @@ mode "$mode_gaps_outer" {
 }
 
 # Basic bar configuration using the Base16 variables.
-bar {
-    status_command i3blocks
-    position top
-    font pango:Hack 10, Font Awesome 10
-    strip_workspace_numbers yes
+# bar {
+#     i3bar_command i3bar -t
+#     status_command i3blocks
+#     position top
+#     font pango:Hack 10, Font Awesome 10
+#     strip_workspace_numbers yes
 
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
+#     colors {
+#         background $base00
+#         separator  $base01
+#         statusline $base04
 
-        # State             Border  BG      Text
-        focused_workspace   $base0D $base0D $base00
-        active_workspace    $base03 $base03 $base00
-        inactive_workspace  $base01 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base0A $base0A $base00
-    }
-}
+#         # State             Border  BG      Text
+#         focused_workspace   $base0D $base0D $base00
+#         active_workspace    $base03 $base03 $base00
+#         inactive_workspace  $base01 $base01 $base05
+#         urgent_workspace    $base08 $base08 $base00
+#         binding_mode        $base0A $base0A $base00
+#     }
+# }
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -252,10 +257,6 @@ for_window [class="^.*"] border pixel 1
 
 hide_edge_borders smart
 
-# gaps
-gaps inner 10
-gaps outer 5
-smart_gaps on
 
 # Floating
 
@@ -265,7 +266,7 @@ for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Nam"] floating enable
 for_window [class="TelegramDesktop"] floating enable
-for_window [class="VirtualBox"] floating enable
+# for_window [class="VirtualBox"] floating enable
 
 # start compton
 exec_always --no-startup-id compton -f -b -c --xrender-sync --xrender-sync-fence
@@ -274,7 +275,7 @@ exec_always --no-startup-id compton -f -b -c --xrender-sync --xrender-sync-fence
 exec_always --no-startup-id ~/.fehbg
 
 # start polybar
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # set they keyboard map
 exec_always --no-startup-id setxkbmap pt
@@ -284,28 +285,56 @@ exec_always --no-startup-id setxkbmap pt
 
 assign [class="Google-chrome"] $workspace1
 assign [class="mpv"] $workspace3
+assign [class="Chromium-browser" instance="crx_hecfofbbdfadifpemejbbdcjmfmboohj"] $workspace3
+assign [class="URxvt" instance="ranger"] $workspace4
 assign [class="VirtualBox"] $workspace5
+assign [class="Transmission-gtk"] $workspace6
 assign [class="KeeWeb"] $workspace8
 assign [class="discord"] $workspace9
 assign [class="TelegramDesktop"] $workspace9
 assign [class="URxvt" instance="cmus"] $workspace10
 assign [class="URxvt" instance="cava"] $workspace10
+assign [class="URxvt" instance="ncmpcpp"] $workspace10
+
+# gaps inner 10
+# gaps outer 5
+# smart_gaps on
+gaps outer 0
+gaps inner 0
+
+workspace $workspace1 gaps outer 0
+workspace $workspace1 gaps inner 0
+
+workspace $workspace2 gaps outer 50
+workspace $workspace2 gaps inner 10
+
+workspace $workspace3 gaps outer 50
+workspace $workspace3 gaps inner 10
+
+workspace $workspace4 gaps outer 200
+workspace $workspace4 gaps inner 10
+
+workspace $workspace5 gaps outer 5
+workspace $workspace5 gaps inner 10
+
+workspace $workspace6 gaps outer 200
+workspace $workspace6 gaps inner 10
 
 workspace $workspace10 gaps outer 200
 workspace $workspace10 gaps inner 50
 
-# start discord and telegram-desktop
-workspace $workspace9 gaps outer 20
-workspace $workspace9 gaps inner 50
-
-
 # start programs
 exec --no-startup-id nm-applet --sm-disable
-exec --no-startup-id urxvt -name cava -e zsh -c cava
-exec --no-startup-id urxvt -name cmus -e zsh -c cmus
-exec --no-startup-id telegram-desktop
+exec --no-startup-id xbindkeys
+exec --no-startup-id mpd
+exec --no-startup-id urxvt -name ranger -e zsh -c ranger
+exec --no-startup-id urxvt -name ncmpcpp -e zsh -c ncmpcpp
 exec --no-startup-id syncthing-gtk
-exec --no-startup-id KeeWeb
 exec --no-startup-id libinput-gestures
+# exec --no-startup-id urxvt -name cava -e zsh -c cava
+# exec --no-startup-id urxvt -name cmus -e zsh -c cmus
+# exec --no-startup-id telegram-desktop
 # exec --no-startup-id discord
+# exec --no-startup-id KeeWeb
 
+exec --no-startup-id sleep 4; for win in $(wmctrl -l | awk -F' ' '{print $1}'); do wmctrl -i -r $win -b remove,demands_attention; done
