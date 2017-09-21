@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pac=$(checkupdates | wc -l)
-aur=$(yaourt -Qqu -a| wc -l)
+aur=$(pacaur -k| wc -l)
 
 check=$((pac + aur))
 if [[ "$check" != "0" ]]
