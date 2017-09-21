@@ -32,6 +32,9 @@ Plug 'scrooloose/nerdtree'
 
 " themes
 Plug 'tomasr/molokai'
+Plug 'dylanaraps/wal.vim'
+
+Plug 'elzr/vim-json', { 'for': 'json' }
 
 call plug#end()
 
@@ -103,6 +106,10 @@ set directory=/tmp " Don't clutter my dirs up with swp and tmp files"
 let mapleader=","
 let maplocalleader="\\"
 set pastetoggle=<F2>
+
+
+" don't hide quotes in json files
+let g:vim_json_syntax_conceal = 0
 
 map <Up> gk
 map <Down> gj
