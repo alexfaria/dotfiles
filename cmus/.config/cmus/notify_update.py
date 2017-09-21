@@ -9,7 +9,28 @@ p = re.compile(r'(status)|(file)|(artist)|(album)|(tracknumber)|(title)|(date)|(
 
 dic = list(filter(None, p.split(' '.join(sys.argv[1:]))))
 
-items = {'status': dic[1].strip(), 'file': dic[3].strip(), 'tracknumber': dic[9].strip(), 'artist': dic[5].strip(), 'album': dic[7].strip(), 'title': dic[11].strip(), 'date': dic[13].strip(), 'duration': dic[15].strip()}
+items = {
+    'status': dic[dic.index('status')+1].strip()
+    # 'artist': dic[dic.index('artist')+1].strip(),
+    # 'album': dic[dic.index('album')+1].strip(),
+    # 'title': dic[dic.index('title')+1].strip()
+}
+
+if 'artist' in dic:
+    items['artist'] = dic[dic.index('artist')+1].strip()
+else:
+    items['artist'] = ''
+
+if 'album' in dic:
+    items['album'] = dic[dic.index('album')+1].strip()
+else:
+    items['album'] = ''
+
+if 'title' in dic:
+    items['title'] = dic[dic.index('title')+1].strip()
+else:
+    items['title'] = ''
+
 
 title = "\"Stopped Playing\""
 message = ""
@@ -23,4 +44,5 @@ if items['status'] == 'paused':
     message = '\"' + items['artist'] + ' - ' + items['title'] + '\"'
 
 os.system('dunstify -r 998 ' + title + ' ' + message)
+os.system('polybar-msg -p $(pidof polybar) hook cmus 1')
 os.system('pkill -SIGRTMIN+12 i3blocks')
