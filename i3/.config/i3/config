@@ -277,6 +277,7 @@ exec_always --no-startup-id ~/.fehbg
 
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/conky/launch.sh
 
 # set they keyboard map
 exec_always --no-startup-id setxkbmap pt
