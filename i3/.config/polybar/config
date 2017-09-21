@@ -313,7 +313,7 @@ format-online = <icon-prev> <toggle> <icon-next> <icon-random> <label-song>
 label-song = 𝄞 %artist% - %title%
 label-offline = 🎜 mpd is offline
 
-icon-prev = 
+icon-prev = 
 icon-stop = 
 icon-play = 
 icon-pause = 
