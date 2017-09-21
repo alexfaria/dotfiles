@@ -1,27 +1,33 @@
 #!/bin/bash
+# https://github.com/jaagr/polybar/wiki/User-contributed-modules#cmus
 
-prepend_zero () {
-  seq -f "%02g" $1 $1 
+cmusstatus=$(cmus-remote -C status)
+grep position <<< "$cmusstatus" 1>/dev/null 2>&1
+if [ ! $? -eq 0 ]; then exit; fi
+
+strindex() {
+  x="${1%%$2*}"
+  [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
 }
 
-status=$(echo -n $(cmus-remote -C status | grep status -m 1))
+prepend_zero () {
+    seq -f "%02g" $1 $1
+}
 
-if [[ "$status" != "status stopped" ]]; then
+get_all_but_first() {
+  shift
+  echo "$@"
+}
 
-  artist=$(echo -n $(cmus-remote -C status | grep artist -m 1 | cut -c 12-))
-  song=$(echo -n $(cmus-remote -C status | grep title -m -1 | cut -c 11-))
+get_stat() {
+  line=$(grep "$1" -m 1 <<< "$cmusstatus")
+  a=$(strindex "$line" "$1")
+  sub="${line:a}"
+  echo "$(get_all_but_first $sub)"
+}
 
-  position=$(cmus-remote -C status | grep position | cut -c 10-)
-  minutes1=$(prepend_zero $(($position / 60)))
-  seconds1=$(prepend_zero $(($position % 60)))
+min_sec_from_sec() {
+  echo -n "$(prepend_zero $(($1 / 60))):$(prepend_zero $(($1 % 60)))"
+}
 
-  duration=$(cmus-remote -C status | grep duration | cut -c 10-)
-  minutes2=$(prepend_zero $(($duration / 60)))
-  seconds2=$(prepend_zero $(($duration % 60)))
-
-  echo -n "$artist - $song [$minutes1:$seconds1 / $minutes2:$seconds2]"
-
-else
-  echo "stopped"
-fi
-
+echo -n "$(get_stat artist)  -  $(get_stat title)  [$(min_sec_from_sec $(get_stat position)) / $(min_sec_from_sec $(get_stat duration))]"
