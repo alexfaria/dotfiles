@@ -12,3 +12,7 @@ visualizer_type = "spectrum"
 visualizer_look = "+|"
 
 show_duplicate_tags = no
+user_interface = alternative
+cyclic_scrolling = yes
+startup_screen = visualizer
+mouse_support = yes
