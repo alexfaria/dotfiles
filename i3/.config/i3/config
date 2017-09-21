@@ -41,7 +41,8 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $alt+Tab exec --no-startup-id rofi -show window
+bindsym $alt+Tab workspace back_and_forth
+# bindsym $alt+Tab exec --no-startup-id rofi -show window
 # bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
 
@@ -167,15 +168,15 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -301,26 +302,32 @@ assign [class="URxvt" instance="ncmpcpp"] $workspace10
 # gaps inner 10
 # gaps outer 5
 # smart_gaps on
+set $outer 50
+set $inner 10
+
 gaps outer 0
 gaps inner 0
 
 workspace $workspace1 gaps outer 0
 workspace $workspace1 gaps inner 0
 
-workspace $workspace2 gaps outer 50
-workspace $workspace2 gaps inner 10
+workspace $workspace2 gaps outer $outer
+workspace $workspace2 gaps inner $inner
 
-workspace $workspace3 gaps outer 50
-workspace $workspace3 gaps inner 10
+workspace $workspace3 gaps outer $outer
+workspace $workspace3 gaps inner $inner
 
 workspace $workspace4 gaps outer 200
-workspace $workspace4 gaps inner 10
+workspace $workspace4 gaps inner $inner
 
 workspace $workspace5 gaps outer 5
-workspace $workspace5 gaps inner 10
+workspace $workspace5 gaps inner $inner
 
 workspace $workspace6 gaps outer 200
-workspace $workspace6 gaps inner 10
+workspace $workspace6 gaps inner $inner
+
+workspace $workspace8 gaps outer $outer
+workspace $workspace8 gaps inner $inner
 
 workspace $workspace10 gaps outer 200
 workspace $workspace10 gaps inner 50
