@@ -20,7 +20,7 @@ plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compos
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.4.0/bin:$HOME/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,12 +48,12 @@ alias zshrc="vim $HOME/.zshrc"
 alias vimrc="vim $HOME/.vimrc"
 alias nvimrc="nvim $HOME/.config/nvim/init.vim"
 alias tmuxrc="vim $HOME/.tmux.conf"
-alias i3rc="vim $HOME/.config/i3/config"
+alias i3rc="vim $HOME/.config/i3/config $HOME/.config/i3blocks/config $HOME/.config/polybar/config"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
 alias pacexpac="expac -H M \"%011m\t%-20n\t%10d\" \$(comm -23 <(pacman -Qqen | sort) <(pacman -Qqg base base-devel | sort)) | sort -n"
 
 alias sv="source $HOME/.zshrc"
 
-if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-  exec startx
-fi
+# if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
+#   exec startx
+# fi
