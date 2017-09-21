@@ -8,7 +8,7 @@ atom/.atom/*
 vim/.vim/*
 !vim/.vim/.vimrc
 
-cmus/.config/cmus/cmus/*
+cmus/.config/cmus/*
 !cmus/.config/cmus/notify_update.py
 !cmus/.config/cmus/cmus_status.sh
 !cmus/.config/cmus/autosave
