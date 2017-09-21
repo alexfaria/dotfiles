@@ -108,9 +108,9 @@ bindsym $mod+Shift+e exec --no-startup-id $HOME/bin/shutdown_menu
 bindsym $mod+shift+x exec --no-startup-id dm-tool lock
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle & pkill -SIGRTMIN+10 i3blocks & ~/bin/volume_notification.sh # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
@@ -285,6 +285,7 @@ exec_always --no-startup-id setxkbmap pt
 
 assign [class="Google-chrome"] $workspace1
 assign [class="mpv"] $workspace3
+assign [class="MATLAB R2016b - academic use"] $workspace3
 assign [class="Chromium-browser" instance="crx_hecfofbbdfadifpemejbbdcjmfmboohj"] $workspace3
 assign [class="URxvt" instance="ranger"] $workspace4
 assign [class="VirtualBox"] $workspace5
@@ -295,6 +296,7 @@ assign [class="TelegramDesktop"] $workspace9
 assign [class="URxvt" instance="cmus"] $workspace10
 assign [class="URxvt" instance="cava"] $workspace10
 assign [class="URxvt" instance="ncmpcpp"] $workspace10
+
 
 # gaps inner 10
 # gaps outer 5
