@@ -159,11 +159,11 @@ nmap <leader>bl :ls<CR>
 nmap <leader>fw :FixWhitespace<cr>
 " relative number line
 set nu
-set relativenumber
+" set relativenumber
 :au FocusLost * :set number
-:au FocusGained * :set relativenumber
+" :au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+" autocmd InsertLeave * :set relativenumber
 
 " This autocommand jumps to the last known position in a file
 "       just after opening it
