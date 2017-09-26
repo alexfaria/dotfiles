@@ -50,12 +50,16 @@ font-1 = FontAwesome:size=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 ; font-3 = siji:pixelsize=10;1
 
-modules-left = i3 xwindow
-modules-center = mpd cmus
-modules-right = currency weather filesystem mail pkg volume battery date 
+; modules-left = i3 xwindow
+; modules-center = mpd cmus
+; modules-right = weather filesystem pkg volume battery redshift date 
+
+modules-left = i3 mpd
+modules-center = date
+modules-right = weather redshift filesystem pkg volume battery
 
 tray-position = right
-tray-padding = 2
+tray-padding = 10
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -72,6 +76,13 @@ enable-ipc = true
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:45:...%
+
+[module/redshift]
+type = custom/script
+interval = 1
+exec = ~/.config/polybar/redshift.sh
+exec-left = redshift &
+exec-right = killall -w redshift
 
 [module/currency]
 type = custom/script
@@ -118,7 +129,7 @@ click-middle = ~/.config/i3blocks/scripts/cmus
 
 [module/pkg]
 type = custom/script
-interval = 1200
+interval = 60
 format = <label>
 label = "%output:0:30%"
 exec = ~/.config/polybar/pkg.sh
@@ -133,10 +144,10 @@ click-right = i3-msg exec "urxvt -e zsh -c \"yaourt -Suya\""
 type = internal/fs
 interval = 25
 mount-0 = /
-; label-mounted = %{F#444}%mountpoint%:%{F-} %free%
 label-mounted = %free%
 format-mounted-prefix = " "
 format-mounted-prefix-foreground = ${colors.foreground-alt}
+; label-mounted = %{F#444}%mountpoint%:%{F-} %free%
 ; label-unmounted-foreground = ${colors.foreground-alt}
 
 
@@ -146,52 +157,35 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = true
-
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
-
 label-focused = %name%
 ; label-focused-background = ${colors.background-alt}
 label-focused-foreground = ${colors.foreground}
 ; label-focused-underline = ${colors.primary}
 label-focused-padding = 1
-
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.background-alt}
-label-unfocused-padding = 1
-
+label-unfocused-padding = ${self.label-focused-padding}
 label-visible = %name%
 ; label-visible-background = ${self.label-focused-background}
 ; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
-
 label-urgent = %name%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = ${self.label-focused-padding}
 
 [module/backlight]
 type = internal/xbacklight
 enable-scroll = true
-; Available tags:
-;   <label> (default)
-;   <ramp>
-;   <bar>
 format = <ramp> <label>
-; Available tokens:
-;   %percentage% (default)
 label = %percentage%%
-; Only applies if <ramp> is used
 ramp-0 = 🌕
 ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
-; Only applies if <bar> is used
-bar-width = 10
-bar-indicator = |
-bar-fill = ─
-bar-empty = ─
 
 ; [module/cpu]
 ; type = internal/cpu
@@ -251,7 +245,6 @@ ramp-volume-1 = 
 ramp-volume-1-foreground = ${colors.foreground-alt}
 ramp-volume-2 = 
 ramp-volume-2-foreground = ${colors.foreground-alt}
-; ramp-headphones-0 = 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
 
@@ -310,17 +303,14 @@ ramp-foreground = ${colors.foreground-alt}
 type = internal/mpd
 interval = 1
 format-online = <icon-prev> <toggle> <icon-next> <icon-random> <label-song>
-label-song = 𝄞 %artist% - %title%
+label-song = %artist% - %title%
 label-offline = 🎜 mpd is offline
-
 icon-prev = 
 icon-stop = 
 icon-play = 
 icon-pause = 
 icon-next = 
-
 icon-random = 
-
 toggle-on-foreground = ${colors.background}
 toggle-off-foreground = ${colors.foreground}
 bar-progress-width = 45
