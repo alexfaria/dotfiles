@@ -302,7 +302,7 @@ ramp-foreground = ${colors.foreground-alt}
 [module/mpd]
 type = internal/mpd
 interval = 1
-format-online = <icon-prev> <toggle> <icon-next> <icon-random> <label-song>
+format-online = <label-song> <icon-prev> <toggle> <icon-next> <icon-random>
 label-song = %artist% - %title%
 label-offline = 🎜 mpd is offline
 icon-prev = 
