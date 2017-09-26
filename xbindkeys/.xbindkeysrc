@@ -1,8 +1,8 @@
 "xdotool key --clearmodifiers XF86AudioPlay"
-  control + 9 + Release
+  Control + Control_R + 9 + Release
 
 "xdotool key --clearmodifiers XF86AudioPrev"
-  control + 8 + Release
+  Control + Control_R + 8 + Release
 
 "xdotool key --clearmodifiers XF86AudioNext"
-  control + 0 + Release
+  Control + Control_R + 0 + Release
