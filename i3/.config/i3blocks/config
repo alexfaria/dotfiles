@@ -29,21 +29,21 @@ markup=none
 # instance=~/.dei-private
 # interval=60
 
-[mail]
-label=
-command=~/.config/i3blocks/scripts/mail
-instance=~/.gmail-private
-interval=60
+# [mail]
+# label=
+# command=~/.config/i3blocks/scripts/mail
+# instance=~/.gmail-private
+# interval=60
 
-[updates]
-command=~/.config/i3blocks/scripts/pkg
-interval=30
+# [updates]
+# command=~/.config/i3blocks/scripts/pkg
+# interval=30
 
-[cmus]
-label=
-command=~/.config/i3blocks/scripts/cmus
-interval=30
-signal=12
+# [cmus]
+# label=
+# command=~/.config/i3blocks/scripts/cmus
+# interval=30
+# signal=12
 
 # Volume indicator
 #
@@ -65,13 +65,13 @@ signal=10
 label=
 interval=30
 
-[load_average]
-interval=1
-label=
+# [load_average]
+# interval=1
+# label=
 
-[temperature]
-label=
-interval=10
+# [temperature]
+# label=
+# interval=10
 
 # Network interface monitoring
 #
@@ -121,7 +121,7 @@ interval=30
 
 [time]
 label= 
-command=date '+%H:%M:%S'
+command=date '+%H:%M'
 interval=1
 
 
