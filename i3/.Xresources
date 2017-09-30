@@ -60,8 +60,7 @@ Xcursor.theme: DMZ-White
 ! ------------------------------------------------------------------------------
 ! URXVT
 ! ------------------------------------------------------------------------------
-
-URxvt.font:                xft:hack:size=12, xft:Aweomse:size=12
+URxvt.font:                xft:hack:size=12, xft:Awesome:size=12
 URxvt.boldFont:            xft:hack:size=12:bold
 URxvt.italicFont:          xft:hack:size=12:italic
 URxvt.boldItalicFont:      xft:hack:size=12:bold:italic
