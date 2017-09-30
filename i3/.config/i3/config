@@ -113,13 +113,13 @@ bindsym $mod+Shift+e exec --no-startup-id $HOME/bin/shutdown_menu
 bindsym $mod+shift+x exec --no-startup-id dm-tool lock
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # & pkill -SIGRTMIN+10 i3blocks #& ~/bin/volume_notification.sh # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay  exec --no-startup-id playerctl play & mpc toggle & cmus-remote -u
@@ -128,9 +128,9 @@ bindsym XF86AudioNext  exec --no-startup-id playerctl next & mpc next & cmus-rem
 bindsym XF86AudioPrev  exec --no-startup-id playerctl previous & mpc prev & cmus-remote --prev
 
 # full printscreen
-bindsym $alt+Shift+s --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $alt+Shift+s --release exec --no-startup-id "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 # select window or rectangle for printscreen
-bindsym $alt+s --release       exec "scrot    /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $alt+s --release       exec --no-startup-id "scrot    /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 
 # open ranger
 bindsym $mod+e exec --no-startup-id urxvt -name ranger -e zsh -c ranger
@@ -233,16 +233,17 @@ mode "$mode_gaps_outer" {
 #     strip_workspace_numbers yes
 
 #     colors {
-#         background $base00
+#         set $transparent "#00000000"
+#         background $transparent
 #         separator  $base01
 #         statusline $base04
 
-#         # State             Border  BG      Text
-#         focused_workspace   $base0D $base0D $base00
-#         active_workspace    $base03 $base03 $base00
-#         inactive_workspace  $base01 $base01 $base05
-#         urgent_workspace    $base08 $base08 $base00
-#         binding_mode        $base0A $base0A $base00
+#         # State             Border            BG        Text
+#         focused_workspace   $transparent $transparent $base05
+#         active_workspace    $transparent $transparent $base05
+#         inactive_workspace  $transparent $transparent $base00
+#         urgent_workspace    $transparent $transparent $base05
+#         binding_mode        $transparent $transparent $base05
 #     }
 # }
 
@@ -271,16 +272,25 @@ for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Nam"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [class="URxvt" instance="nmtui"] floating enable
+for_window [class="URxvt" instance="yaourt"] floating enable
 for_window [class="MATLAB R2016b - academic use"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Steam" title="Friends"] floating enable
+for_window [class="Steam" title="Chat$"] floating enable
+
 # for_window [class="VirtualBox"] floating enable
 
 assign [class="Google-chrome"] $workspace1
-assign [class="Chromium"] $workspace1
+assign [class="Vivaldi-stable"] $workspace1
+assign [class="Chromium$"] $workspace1
 assign [class="Firefox"] $workspace1
 assign [class="mpv"] $workspace3
+assign [class="Kodi"] $workspace3
 assign [class="MATLAB R2016b - academic use"] $workspace3
 assign [class="Chromium-browser" instance="crx_hecfofbbdfadifpemejbbdcjmfmboohj"] $workspace3
 assign [class="URxvt" instance="ranger"] $workspace4
+assign [class="Nautilus"] $workspace4
 assign [class="VirtualBox"] $workspace5
 assign [class="Transmission-gtk"] $workspace6
 assign [class="Steam"] $workspace7
@@ -329,15 +339,16 @@ workspace $workspace10 gaps outer 200
 workspace $workspace10 gaps inner 50
 
 # start programs
-exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id xbindkeys
 exec --no-startup-id mpd
 exec --no-startup-id redshift
-exec --no-startup-id urxvt -name ranger -e zsh -c ranger
 exec --no-startup-id urxvt -name ncmpcpp -e zsh -c ncmpcpp
-exec --no-startup-id syncthing-gtk
 exec --no-startup-id libinput-gestures
-exec --no-startup-id geary
+# exec --no-startup-id syncthing --no-browser
+exec --no-startup-id nm-applet --sm-disable
+# exec --no-startup-id geary
+# exec --no-startup-id syncthing-gtk
+# exec --no-startup-id urxvt -name ranger -e zsh -c ranger
 # exec --no-startup-id urxvt -name cava -e zsh -c cava
 # exec --no-startup-id urxvt -name cmus -e zsh -c cmus
 # exec --no-startup-id telegram-desktop
