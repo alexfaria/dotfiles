@@ -1,32 +1,28 @@
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 15
+margin-bottom = 15
 
 [colors]
 ; background = ${xrdb:color0:#222}
-background = #FF
-background-alt = #444
+background = #fff0f0f
+background-alt = #666
 foreground = ${xrdb:color7:#222}
-foreground-alt = #555
+foreground-alt = #999
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
 [bar/top]
 width = 100%
-; height = 27
-height = 20
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+height = 22
 fixed-center = true
+; height = 27
+; offset-x = 1%
+; offset-y = 1%
+; radius = 6.0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -34,7 +30,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+; border-size = 4
 border-color = #00000000
 
 padding-left = 0
@@ -43,39 +39,62 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-; font-0 = fixed:pixelsize=10;1
 font-0 = dina:pixelsize=10;1
-; font-0 = DejaVu Sans Mono:pixelsize=10;1
 font-1 = FontAwesome:size=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-; font-3 = siji:pixelsize=10;1
+; font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
+; font-0 = fixed:pixelsize=10;1
+; font-0 = DejaVu Sans Mono:pixelsize=10;1
 
-; modules-left = i3 xwindow
-; modules-center = mpd cmus
-; modules-right = weather filesystem pkg volume battery redshift date 
+modules-left = i3 xwindow
+modules-center = mpd date
+modules-right = weather filesystem pkg vpncheck backlight volume battery wlan telegram syncthing redshift steam discord
 
-modules-left = i3 mpd
-modules-center = date
-modules-right = weather redshift filesystem pkg volume battery
-
-tray-position = right
+;tray-position =
 tray-padding = 10
+; tray-position = right
 ;tray-transparent = true
 ;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
 enable-ipc = true
+
+[module/syncthing]
+type = custom/script
+interval = 10
+exec = "echo "
+; have to escape the colon https://github.com/jaagr/polybar/issues/444
+click-left = xdg-open 'http://127.0.0.1\:8384' &
+exec-if = pgrep -x syncthing
+
+[module/discord]
+type = custom/script
+interval = 5
+exec = "echo "
+click-left = discord
+click-right = killall Discord
+exec-if = pgrep -x Discord
+
+
+[module/steam]
+type = custom/script
+interval = 5
+exec = "echo "
+click-left = steam
+click-right = killall steam
+exec-if = pgrep -x steam
+
+[module/telegram]
+type = custom/script
+interval = 5
+exec = "echo "
+click-left = telegram-desktop
+click-right = killall telegram-desktop
+exec-if = pgrep telegram
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:45:...%
+label = %title:0:40:...%
 
 [module/redshift]
 type = custom/script
@@ -112,13 +131,6 @@ exec = ~/.config/polybar/mail.py ~/.gmail-private.json
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 click-left = ~/.config/polybar/mail.py ~/.gmail-private.json
 
-; [module/cmus]
-; type = custom/script
-; exec = ~/.config/i3blocks/scripts/cmus
-; exec-if = pgrep -x cmus
-; interval = 1
-; click-left = cmus-remote --pause
-
 [module/cmus]
 type = custom/ipc
 hook-0 = ~/.config/polybar/cmus
@@ -135,7 +147,7 @@ label = "%output:0:30%"
 exec = ~/.config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 click-left = ~/.config/polybar/pkg.sh
-click-right = i3-msg exec "urxvt -e zsh -c \"yaourt -Suya\""
+click-right = i3-msg exec "urxvt -name yaourt -e zsh -c \"yaourt -Suya\""
 ; click-left = polybar-msg -p %pid% hook pkg 1
 ; hook-0 = ~/.config/polybar/pkg.sh
 ; initial = 1
@@ -161,16 +173,12 @@ label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 label-focused = %name%
-; label-focused-background = ${colors.background-alt}
 label-focused-foreground = ${colors.foreground}
-; label-focused-underline = ${colors.primary}
 label-focused-padding = 1
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.background-alt}
 label-unfocused-padding = ${self.label-focused-padding}
 label-visible = %name%
-; label-visible-background = ${self.label-focused-background}
-; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 label-urgent = %name%
 label-urgent-foreground = ${colors.alert}
@@ -182,10 +190,15 @@ enable-scroll = true
 format = <ramp> <label>
 label = %percentage%%
 ramp-0 = 🌕
+ramp-0-foreground = ${colors.foreground-alt}
 ramp-1 = 🌔
+ramp-1-foreground = ${colors.foreground-alt}
 ramp-2 = 🌓
+ramp-2-foreground = ${colors.foreground-alt}
 ramp-3 = 🌒
+ramp-3-foreground = ${colors.foreground-alt}
 ramp-4 = 🌑
+ramp-4-foreground = ${colors.foreground-alt}
 
 ; [module/cpu]
 ; type = internal/cpu
@@ -203,31 +216,38 @@ ramp-4 = 🌑
 ; format-underline = #4bffdc
 ; label = %percentage_used%%
 
-; [module/wlan]
-; type = internal/network
-; interface = wlp1s0
-; interval = 3.0
-; format-connected = <ramp-signal> <label-connected>
-; format-connected-underline = #9f78e1
-; label-connected = %essid%
-; format-disconnected = <label-disconnected>
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-foreground = ${colors.foreground-alt}
+; label-connected = %{A1:i3-msg exec "urxvt -name nmtui -e zsh -c nmtui":}%essid%%{A}
+label-connected = %{A1:networkmanager_dmenu:}%essid%%{A}
+label-connected-foreground = ${colors.foreground}
+format-disconnected = <label-disconnected>
 ; label-disconnected = %ifname% disconnected
-; label-disconnected-foreground = ${colors.foreground-alt}
-; ramp-signal-0 = 
-; ramp-signal-1 = 
-; ramp-signal-2 = 
-; ramp-signal-3 = 
-; ramp-signal-4 = 
-; ramp-signal-foreground = ${colors.foreground-alt}
+label-disconnected = %{A1:networkmanager_dmenu:}%ifname% disconnected%{A}
+label-disconnected-foreground = ${colors.foreground}
+
+[module/vpncheck]
+type = custom/script
+exec = pgrep openvpn
+interval = 5
+label = vpn
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
 interval = 1.0
-date = %d/%m/%y - 
+; date = %d/%m/%y
+date = %d, 
 date-alt = %a %b %d, 
 time = %H:%M
 time-alt = %H:%M:%S
-label = %time%
+label = %date% %time%
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format = <label>
@@ -302,7 +322,8 @@ ramp-foreground = ${colors.foreground-alt}
 [module/mpd]
 type = internal/mpd
 interval = 1
-format-online = <label-song> <icon-prev> <toggle> <icon-next> <icon-random>
+format-online = <label-song>
+; format-online = <label-song> <icon-prev> <toggle> <icon-next> <icon-random>
 label-song = %artist% - %title%
 label-offline = 🎜 mpd is offline
 icon-prev = 
