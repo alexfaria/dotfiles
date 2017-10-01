@@ -98,9 +98,14 @@ set tabstop=2
 " undo after closing a file
 set undofile
 set backup
-set undodir=/tmp
-set backupdir=/tmp
-set directory=/tmp " Don't clutter my dirs up with swp and tmp files"
+set undodir=~/.vim/undo
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
+
+" set undodir=/tmp
+" set backupdir=/tmp
+" set directory=/tmp " Don't clutter my dirs up with swp and tmp files"
 " set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 
 let mapleader=","
