@@ -135,7 +135,8 @@ bindsym $alt+s --release       exec --no-startup-id "scrot    /tmp/screenshot-$(
 # open ranger
 bindsym $mod+e exec --no-startup-id urxvt -name ranger -e zsh -c ranger
 
-set $workspace1 "1:"
+# set $workspace1 "1:" # chrome
+set $workspace1 "1:"
 set $workspace2 "2:"
 set $workspace3 "3:"
 set $workspace4 "4:"
