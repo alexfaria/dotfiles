@@ -343,10 +343,10 @@ workspace $workspace10 gaps inner 50
 exec --no-startup-id xbindkeys
 exec --no-startup-id mpd
 exec --no-startup-id redshift
-exec --no-startup-id urxvt -name ncmpcpp -e zsh -c ncmpcpp
 exec --no-startup-id libinput-gestures
+# exec --no-startup-id nm-applet --sm-disable
 # exec --no-startup-id syncthing --no-browser
-exec --no-startup-id nm-applet --sm-disable
+# exec --no-startup-id urxvt -name ncmpcpp -e zsh -c ncmpcpp
 # exec --no-startup-id geary
 # exec --no-startup-id syncthing-gtk
 # exec --no-startup-id urxvt -name ranger -e zsh -c ranger
