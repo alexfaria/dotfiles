@@ -48,8 +48,15 @@ interval=5
 # [ssid]
 # interval=10
 
+[rpi]
+interval=60
+
 [syncthing]
 interval=60
 
 [redshift]
 interval=10
+
+[separator]
+command=echo " "
+interval=once
