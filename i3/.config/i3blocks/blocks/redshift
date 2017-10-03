@@ -22,4 +22,4 @@ else
     colour="#D08770" # Orange
 fi
 
-echo "<span foreground=\"${colour}\">$icon</span>   "
+echo "<span foreground=\"${colour}\">$icon</span>"
