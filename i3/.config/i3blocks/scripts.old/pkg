@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# if [[ "${BLOCK_BUTTON}" == "1" ]]; then
+#   i3-msg "exec urxvt -name yaourt -e zsh -c \"yaourt -Suya && pkill -SIGRTMIN+7 i3blocks\""
+# fi
+
+pac=$(checkupdates | wc -l)
+aur=$(yaourt -Qqu -a| wc -l)
+
+check=$((pac + aur))
+if [[ "$check" != "0" ]]
+then
+    echo "$pac <span foreground=\"#999\"> </span>  as $aur"
+fi

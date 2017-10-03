@@ -1,0 +1,6 @@
+#!/bin/bash
+
+IP="$(wget -qO- ipinfo.io/ip)"
+if pidof openvpn > /dev/null; then
+  echo "<span foreground=\"#999\">  </span>  ${IP}"
+fi
