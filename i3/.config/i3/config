@@ -288,6 +288,7 @@ assign [class="Google-chrome"] $workspace1
 assign [class="Vivaldi-stable"] $workspace1
 assign [class="Chromium$"] $workspace1
 assign [class="Firefox"] $workspace1
+assign [class="Atom"] $workspace2
 assign [class="mpv"] $workspace3
 assign [class="Kodi"] $workspace3
 assign [class="MATLAB R2016b - academic use"] $workspace3
