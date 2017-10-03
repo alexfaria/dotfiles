@@ -1,11 +1,7 @@
 #!/bin/bash
 # Based on http://openweathermap.org/current
 
-ping -q -w 2 -c 1 176.34.135.167 > /dev/null
-online=$?
-if [ ! $online -eq 0 ]; then
-    echo ""
-    echo ""
+if ! ping -c 1 176.34.135.167 &> /dev/null; then
     echo ""
     exit
 fi
