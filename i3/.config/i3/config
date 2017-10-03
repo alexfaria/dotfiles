@@ -226,27 +226,29 @@ mode "$mode_gaps_outer" {
 }
 
 # Basic bar configuration using the Base16 variables.
-# bar {
-#     i3bar_command i3bar -t
-#     status_command i3blocks
-#     position top
-#     font pango:Hack 10, Font Awesome 10
-#     strip_workspace_numbers yes
+bar {
+    i3bar_command i3bar -t
+    status_command i3blocks
+    position top
+    font pango: Hack, Wuncon Siji, Font Awesome 10
+    height 27
+    strip_workspace_numbers yes
+    tray_padding 5
 
-#     colors {
-#         set $transparent "#00000000"
-#         background $transparent
-#         separator  $base01
-#         statusline $base04
+    colors {
+        set $transparent "#00000000"
+        background $transparent
+        separator  $base01
+        statusline $base04
 
-#         # State             Border            BG        Text
-#         focused_workspace   $transparent $transparent $base05
-#         active_workspace    $transparent $transparent $base05
-#         inactive_workspace  $transparent $transparent $base00
-#         urgent_workspace    $transparent $transparent $base05
-#         binding_mode        $transparent $transparent $base05
-#     }
-# }
+        # State             Border            BG        Text
+        focused_workspace   $transparent $transparent $base05
+        active_workspace    $transparent $transparent $base05
+        inactive_workspace  $transparent $transparent $base00
+        urgent_workspace    $transparent $transparent $base05
+        binding_mode        $transparent $transparent $base05
+    }
+}
 
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
@@ -363,7 +365,7 @@ exec_always --no-startup-id compton -f -b -c --xrender-sync --xrender-sync-fence
 exec_always --no-startup-id ~/.fehbg
 
 # start polybar and conky
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id ~/.config/conky/launch.sh
 
 # set the keyboard map
