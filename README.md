@@ -14,3 +14,6 @@ personal dotfiles management using [GNU Stow](https://www.gnu.org/software/stow/
 - Video Player: `mpv`
 - Web Browser: `Firefox (Nightly)`
 - Window Manager: `i3-gaps`
+
+## Screenshot
+![rice#1](https://github.com/alexfaria/dotfiles/blob/master/scrots/rice%231.png?raw=true)
