@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if ! ping -c 1 176.34.135.167 &> /dev/null; then
+    echo ""
+    exit
+fi
+
+if ping -c 1 rocketdeer.duckdns.org &> /dev/null; then
+    echo "<span foreground=\"#999\"></span>"
+    exit
+fi
