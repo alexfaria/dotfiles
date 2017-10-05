@@ -1,11 +1,13 @@
 #!/bin/bash
 
-if ! ping -c 1 176.34.135.167 &> /dev/null; then
+if ! ping -c 1 192.168.1.78 &> /dev/null; then
     echo ""
     exit
 fi
 
-if ping -c 1 rocketdeer.duckdns.org &> /dev/null; then
-    echo "<span foreground=\"#999\"></span>"
-    exit
+if [[ "${BLOCK_BUTTON}" == "1" ]]; then
+  xdg-open http://192.168.1.78:8384 > /dev/null
 fi
+
+echo "<span foreground=\"#999\"></span>"
+exit
