@@ -1,27 +1,65 @@
 #!/bin/bash
 set -e
 export DOTFILES=~/.dotfiles
+SCRIPT=`basename ${BASH_SOURCE[0]}`
 
-git submodule update --init --recursive
+#Help function
+function HELP {
+  echo -e \\n"Help documentation for ${SCRIPT}."\\n
+  echo -e "Basic usage: ./$SCRIPT -g i3"\\n
+  echo "Command line switches are optional. The following switches are recognized."
+  echo "-v  --Downloads vim-plug and installs all vim plugins."
+  echo "-n  --Downloads vim-plug and installs all neovim plugins."
+  echo "-g  --Updates git submodules."
+  echo -e "-h  --Displays this help message. No further functions are performed."\\n
+  echo -e "Example: $SCRIPT -vng i3 zsh xorg"\\n
+  exit 1
+}
 
-stow zsh
-stow vim
-stow nvim
-stow i3
-stow bin
-stow tmux
-stow yaourt
-stow libinput-gestures
-stow git
-stow bash
-# sudo stow -t / xorg
+NUMARGS=$#
+if [ $NUMARGS -eq 0 ]; then
+  HELP
+fi
 
-echo "Install vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+while getopts :stow:vngh FLAG; do
+  case $FLAG in
+    v)
+      echo "Install vim-plug for vim"
+      curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      vim +PlugInstall +qall
+      echo "Install vim plugins"
+      ;;
+    n)
+      echo "Install vim-plug for neovim"
+      curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      echo "Install neovim plugins"
+      nvim +PlugInstall +qall
+      ;;
+    g)
+      echo "Update git submodules"
+      git submodule update --init --recursive
+    ;;
+    h)
+      HELP
+    ;;
+    \?) #unrecognized option - show help
+      echo -e \\n"Option -$OPTARG not allowed."
+      HELP
+    ;;
+  esac
+done
 
-echo "Install vim/nvim plugins"
-vim +PlugInstall +qall
-nvim +PlugInstall +qall
+shift $((OPTIND-1))  #This tells getopts to move on to the next argument.
+
+while [ $# -ne 0 ]; do
+  MODULE=$1
+  echo "Stowing module $MODULE"
+  if [[ "$MODULE" == 'xorg' ]]; then
+    sudo stow -t / $MODULE
+  else
+    stow $MODULE
+  fi
+  shift
+done
+
+exit 0
