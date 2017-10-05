@@ -22,7 +22,7 @@ if [ $NUMARGS -eq 0 ]; then
   HELP
 fi
 
-while getopts :vngh FLAG; do
+while getopts :vnsh FLAG; do
   case $FLAG in
     v)
       echo "Install vim-plug for vim"
@@ -36,7 +36,7 @@ while getopts :vngh FLAG; do
       echo "Install neovim plugins"
       nvim +PlugInstall +qall
       ;;
-    g)
+    s)
       echo "Update git submodules"
       git submodule update --init --recursive
     ;;
