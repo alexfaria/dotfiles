@@ -21,7 +21,7 @@ if [ $NUMARGS -eq 0 ]; then
   HELP
 fi
 
-while getopts :stow:vngh FLAG; do
+while getopts :vngh FLAG; do
   case $FLAG in
     v)
       echo "Install vim-plug for vim"
