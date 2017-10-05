@@ -1,4 +1,5 @@
 #!/bin/bash
+# http://tuxtweaks.com/2014/05/bash-getopts/
 set -e
 export DOTFILES=~/.dotfiles
 SCRIPT=`basename ${BASH_SOURCE[0]}`
