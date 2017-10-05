@@ -1,12 +1,11 @@
 #!/bin/bash
 
-SYNCTHING=$(pgrep syncthing)
-
 if [[ "${BLOCK_BUTTON}" == "1" ]]; then
-  xdg-open http://localhost:8384
+  xdg-open http://localhost:8384 > /dev/null
 fi
 
-if [[ "${SYNCTHING}" != "" ]]; then
+if systemctl --user status syncthing | grep running > /dev/null
+then
   echo "<span foreground=\"#999\"></span>"
   echo "<span foreground=\"#999\"></span>"
   echo ""
