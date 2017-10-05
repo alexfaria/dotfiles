@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! ping -c 1 176.34.135.167 &> /dev/null; then
+    echo ""
+    exit
+fi
+
 API="http://api.fixer.io/latest"
 text=$(curl ${API} 2> /dev/null | jq -r '.rates.GBP')
 icon=""
