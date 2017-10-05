@@ -1,3 +1,4 @@
 #!/bin/bash
-DATE=$(date '+%d, %H:%M')
-echo "<span foreground=\"#999\">  </span>${DATE}"
+date=$(date '+%d, %H:%M')
+icon=""
+echo "<span foreground=\"#999\">${icon}  </span>${date}"
