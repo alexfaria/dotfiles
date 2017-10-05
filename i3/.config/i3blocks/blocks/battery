@@ -23,6 +23,7 @@ my $ac_adapt;
 my $full_text;
 my $short_text;
 my $bat_number = $ENV{BLOCK_INSTANCE} || 0;
+my $block_button = $ENV{BLOCK_BUTTON} || 0;
 
 # read the first line of the "acpi" command output
 open (ACPI, "acpi -b | grep 'Battery $bat_number' |") or die;
@@ -38,30 +39,12 @@ $status = $1;
 $percent = $2;
 $full_text = "$percent";
 
-# if ($status eq 'Discharging') {
-# 	$full_text .= ' DIS';
-# } elsif ($status eq 'Charging') {
-# 	$full_text .= ' CHR';
-# } elsif ($status eq 'Unknown') {
-# 	open (AC_ADAPTER, "acpi -a |") or die;
-# 	$ac_adapt = <AC_ADAPTER>;
-# 	close(AC_ADAPTER);
-#
-# 	if ($ac_adapt =~ /: ([\w-]+)/) {
-# 		$ac_adapt = $1;
-#
-# 		if ($ac_adapt eq 'on-line') {
-# 			$full_text .= ' CHR';
-# 		} elsif ($ac_adapt eq 'off-line') {
-# 			$full_text .= ' DIS';
-# 		}
-# 	}
-# }
-
-my $index;
 my $icon;
+my $charg_icon;
+my $colour = '#999';
 
 # Charging Animation
+# my $index;
 # if ($status eq 'Charging') {
 # 	$index = time() % 5;
 # 	if ($index == 0){
@@ -76,30 +59,31 @@ my $icon;
 # 		$icon = "";
 # 	}
 # } elsif ($status eq 'Discharging') {
-	if ($percent < 20) {
-		$icon = "";
-	} elsif ($percent < 40) {
-		$icon = "";
-	} elsif ($percent < 60) {
-		$icon = "";
-	} elsif ($percent < 85) {
-		$icon = "";
-	} else {
-		$icon = "";
-	}
+if ($percent < 20) {
+	$icon = "";
+	$colour = '#f00';
+} elsif ($percent < 40) {
+	$icon = "";
+} elsif ($percent < 60) {
+	$icon = "";
+} elsif ($percent < 80) {
+	$icon = "";
+} else {
+	$icon = "";
+}
 # }
 
-my $icon2 = "";
 if ($status eq "Charging") {
-	$icon2 = "  "
+	$charg_icon = "  ";
 }
 
-$full_text = "<span foreground=\"#999\">" . $icon2 . $icon . "</span>  " . $full_text;
+$full_text = "<span foreground=\"${colour}\">${charg_icon} ${icon}</span>  ${full_text}";
 $short_text = $full_text;
 
-# if ($acpi =~ /(\d\d:\d\d):/) {
-# 	$full_text .= " ($1)";
-# }
+# display charge / discharge time until the next i3blocks update
+if ($block_button == 1 && $acpi =~ /(\d\d:\d\d):/) {
+	$full_text .= " ($1)";
+}
 
 # print text
 print "$full_text\n";
