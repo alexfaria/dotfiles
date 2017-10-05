@@ -13,6 +13,14 @@ instance=mpd
 interval=1
 signal=8
 
+[currency]
+instance=GBP EUR
+interval=3600
+
+# [currency]
+# instance=EUR GBP
+# interval=3600
+
 [weather]
 interval=3600
 instance=2740637
