@@ -1,7 +1,16 @@
-#!/bin/bash
-# i3 workspace 10
-scrot /tmp/screen.png
-convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
-# dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
-i3lock -u -i /tmp/screen.png
-rm /tmp/screen.png
+#!/usr/bin/env bash
+
+# pause media players
+mpc pause 2&> /dev/null                         # mpd
+cmus-remote -u 2&> /dev/null                    # cmus
+playerctl --player=spotify pause  2&> /dev/null # spotify
+
+# variables
+image=$(mktemp tmp.XXXXXXXXXX.png)
+icon=$HOME/bin/lock.png
+
+scrot $image
+convert $image -scale 10% -scale 1000% $image
+convert $image $icon -gravity center -composite -matte $image
+i3lock -e -u -i $image
+rm $image
