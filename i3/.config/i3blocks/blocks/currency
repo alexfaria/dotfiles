@@ -6,18 +6,20 @@ if ! ping -c 1 176.34.135.167 &> /dev/null; then
 fi
 
 API="http://api.fixer.io/latest"
-text=$(curl ${API} 2> /dev/null | jq -r '.rates.GBP')
 icon=""
 
-if [[ $BLOCK_INSTANCE ]]; then
-  read -a array <<< $BLOCK_INSTANCE
-  text=$(curl ${API}?base=${array[0]} 2> /dev/null | jq -r ".rates.${array[1]}")
-
-  case ${array[1]} in
-    ("EUR") icon="";;
-    ("GBP") icon="";;
-    ("USD") icon="";;
-  esac
+# set default value if block instance is not set
+if [[ $BLOCK_INSTANCE == "" ]]; then
+  BLOCK_INSTANCE="EUR GBP"
 fi
+
+read -a array <<< $BLOCK_INSTANCE
+text=$(curl ${API}?base=${array[0]} 2> /dev/null | jq -r ".rates.${array[1]}")
+
+case ${array[1]} in
+  ("EUR") icon="";;
+  ("GBP") icon="";;
+  ("USD") icon="";;
+esac
 
 echo "<span foreground=\"#999\">${icon}</span>  ${text}"
