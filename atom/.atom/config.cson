@@ -19,5 +19,8 @@
     showIndentGuide: true
   "exception-reporting":
     userId: "bcc7b6c5-5583-423e-9526-ea5693aab25a"
+  linter:
+    lintOnChange: false
+  "linter-shellcheck": {}
   welcome:
     showOnStartup: false
