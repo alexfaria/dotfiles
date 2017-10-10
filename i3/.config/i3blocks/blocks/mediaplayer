@@ -40,45 +40,45 @@ sub buttons {
 
     if($method eq 'mpd') {
         if ($ENV{'BLOCK_BUTTON'} == 1) {
-            system("mpc prev");
+            system("mpc prev > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 2) {
-            system("mpc toggle");
+            system("mpc toggle > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
-            system("mpc next");
+            system("mpc next > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 4) {
-            system("mpc volume +10");
+            system("mpc volume +10 > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 5) {
-            system("mpc volume -10");
+            system("mpc volume -10 > /dev/null");
         }
     } elsif ($method eq 'cmus') {
         if ($ENV{'BLOCK_BUTTON'} == 1) {
-            system("cmus-remote --prev");
+            system("cmus-remote --prev > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 2) {
-            system("cmus-remote --pause");
+            system("cmus-remote --pause > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
-            system("cmus-remote --next");
+            system("cmus-remote --next > /dev/null");
         }
     } elsif ($method eq 'playerctl') {
         if ($ENV{'BLOCK_BUTTON'} == 1) {
-            system("playerctl $player_arg previous");
+            system("playerctl $player_arg previous > /dev/null");
             usleep(DELAY * 1000) if $BLOCK_INSTANCE eq SPOTIFY_STR;
         } elsif ($ENV{'BLOCK_BUTTON'} == 2) {
-            system("playerctl $player_arg play-pause");
+            system("playerctl $player_arg play-pause > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
-            system("playerctl $player_arg next");
+            system("playerctl $player_arg next > /dev/null");
             usleep(DELAY * 1000) if $BLOCK_INSTANCE eq SPOTIFY_STR;
         } elsif ($ENV{'BLOCK_BUTTON'} == 4) {
-            system("playerctl $player_arg volume 0.01+");
+            system("playerctl $player_arg volume 0.01+ > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 5) {
-            system("playerctl $player_arg volume 0.01-");
+            system("playerctl $player_arg volume 0.01- > /dev/null");
         }
     } elsif ($method eq 'rhythmbox') {
         if ($ENV{'BLOCK_BUTTON'} == 1) {
-            system("rhythmbox-client --previous");
+            system("rhythmbox-client --previous > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 2) {
-            system("rhythmbox-client --play-pause");
+            system("rhythmbox-client --play-pause > /dev/null");
         } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
-            system("rhythmbox-client --next");
+            system("rhythmbox-client --next > /dev/null");
         }
     }
 }
