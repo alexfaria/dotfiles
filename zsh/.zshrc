@@ -2,7 +2,7 @@
 export TERM="xterm-256color"
 export EDITOR="nvim"
 export DOTFILES=$HOME/.dotfiles
-export ZSH=/home/alex/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_CUSTOM=$DOTFILES/zsh/custom
 ZSH_THEME="robbyrussell"

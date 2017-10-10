@@ -1,9 +1,9 @@
 #!/bin/python
 import requests
 import urllib.request
-import os.path
+import os
 
-pictures_dir = '/home/alex/Pictures/nasa'
+pictures_dir = os.path.join(os.environ['HOME'], 'Pictures/nasa')
 api_key = "DEMO_KEY"
 
 print("Making a request")
