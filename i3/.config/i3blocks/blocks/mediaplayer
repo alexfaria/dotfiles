@@ -108,6 +108,10 @@ sub cmus {
 }
 
 sub mpd {
+    my $status = qx(mpc status | grep playing);
+    if ($status eq ''){
+      exit 0;
+    }
     my $data = qx(mpc current);
     if (not $data eq '') {
         buttons("mpd");
