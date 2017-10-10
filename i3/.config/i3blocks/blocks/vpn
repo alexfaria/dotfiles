@@ -1,6 +1,9 @@
 #!/bin/bash
 
-IP="$(wget -qO- ipinfo.io/ip)"
+api="$(curl -s ipinfo.io)"
+ip=$(echo "$api" | jq -r ".ip")
+country=$(echo "$api" | jq -r ".country")
+
 if pidof openvpn > /dev/null; then
-  echo "<span foreground=\"#999\">  </span>  ${IP}"
+  echo "<span foreground=\"#999\">  </span>  ${country}:${ip}"
 fi
