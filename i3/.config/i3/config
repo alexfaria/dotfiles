@@ -347,17 +347,13 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id mpd
 exec --no-startup-id redshift -l 40.186391:-8.415977
 exec --no-startup-id libinput-gestures
-exec --no-startup-id nm-applet --sm-disable
-# exec --no-startup-id syncthing-gtk
-# exec --no-startup-id syncthing --no-browse\r
+exec --no-startup-id nm-applet --sm-disable &
+exec --no-startup-id xautolock -time 5 -locker lock.sh &
+# exec --no-startup-id xss-lock -- lock.sh suspend &
 # exec --no-startup-id urxvt -name ncmpcpp -e zsh -c ncmpcpp
-# exec --no-startup-id geary
 # exec --no-startup-id urxvt -name ranger -e zsh -c ranger
 # exec --no-startup-id urxvt -name cava -e zsh -c cava
 # exec --no-startup-id urxvt -name cmus -e zsh -c cmus
-# exec --no-startup-id telegram-desktop
-# exec --no-startup-id discord
-# exec --no-startup-id KeeWeb
 
 # start compton
 exec_always --no-startup-id compton -f -b -c --xrender-sync --xrender-sync-fence
