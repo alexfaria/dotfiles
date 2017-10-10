@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[[ "$BLOCK_BUTTON" == 1 ]] && $HOME/bin/shutdown_menu
+echo "<span foreground=\"#999\">   </span>"
