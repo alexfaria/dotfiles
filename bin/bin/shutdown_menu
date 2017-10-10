@@ -29,7 +29,8 @@
 
 # Use a custom lock script
 #LOCKSCRIPT="i3lock-extra -m pixelize"
-LOCKSCRIPT="dm-tool lock"
+#LOCKSCRIPT="dm-tool lock"
+LOCKSCRIPT="$HOME/bin/lock.sh"
 
 # Colors: FG (foreground), BG (background), HL (highlighted)
 FG_COLOR="#bbbbbb"
