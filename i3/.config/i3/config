@@ -108,7 +108,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec --no-startup-id $HOME/bin/shutdown_menu
 
 # lock the screen
-bindsym $mod+shift+x exec ~/bin/lock.sh
+bindsym $mod+shift+x exec $HOME/bin/lock.sh
 # bindsym $mod+shift+x exec i3lock-fancy -gp -- scrot -z
 # bindsym $mod+shift+x exec --no-startup-id dm-tool lock
 
@@ -347,9 +347,9 @@ exec --no-startup-id xbindkeys
 exec --no-startup-id mpd
 exec --no-startup-id redshift -l 40.186391:-8.415977
 exec --no-startup-id libinput-gestures
-exec --no-startup-id nm-applet --sm-disable &
-exec --no-startup-id xautolock -time 5 -locker lock.sh &
-# exec --no-startup-id xss-lock -- lock.sh suspend &
+exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id xautolock -time 2 -locker $HOME/bin/lock.sh
+exec --no-startup-id xss-lock -- $HOME/bin/lock.sh
 # exec --no-startup-id urxvt -name ncmpcpp -e zsh -c ncmpcpp
 # exec --no-startup-id urxvt -name ranger -e zsh -c ranger
 # exec --no-startup-id urxvt -name cava -e zsh -c cava
@@ -369,8 +369,5 @@ exec_always --no-startup-id ~/.config/conky/launch.sh
 exec_always --no-startup-id setxkbmap pt
 
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
-
-# xautolock
-# exec_always --no-startup-id xautolock -locker i3lock-fancy &
 
 exec --no-startup-id sleep 4; for win in $(wmctrl -l | awk -F' ' '{print $1}'); do wmctrl -i -r $win -b remove,demands_attention; done

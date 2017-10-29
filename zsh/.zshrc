@@ -51,6 +51,7 @@ alias tmuxrc="vim $HOME/.tmux.conf"
 alias i3rc="vim $HOME/.config/i3/config $HOME/.config/i3blocks/config $HOME/.config/polybar/config"
 alias venvrc="vim $VIRTUAL_ENV/bin/postactivate"
 alias pacexpac="expac -H M \"%011m\t%-20n\t%10d\" \$(comm -23 <(pacman -Qqen | sort) <(pacman -Qqg base base-devel | sort)) | sort -n"
+alias relpav="pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect; pulseaudio -k; sleep 1; pulseaudio --start"
 
 alias sv="source $HOME/.zshrc"
 

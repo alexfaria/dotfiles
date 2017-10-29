@@ -22,4 +22,8 @@ do
 done
 
 # display current & next 6 days (7 altogether)
-calcurse -r3
+# calcurse -r3
+# calcurse -r100 --search="Avaliação"
+# calcurse -r100 --format-apt='%m\n' --search="Avalia" 
+# calcurse -r100 --format-apt='%m\n' --search="Avaliação" | grep -Poe "\d+\/\d+\/\d+|Avaliação.+(\))|Avaliação.+(?=-)"
+calcurse -r100 --search="Avalia" | grep -Poe "\d+\/\d+\/\d+|Avaliação.+(\))|Avaliação.+(?=-)"
