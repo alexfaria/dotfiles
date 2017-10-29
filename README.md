@@ -1,5 +1,5 @@
-## dotfiles
-personal dotfiles management using [GNU Stow](https://www.gnu.org/software/stow/)
+## Dotfiles
+Personal dotfiles management using [GNU Stow](https://www.gnu.org/software/stow/)
 
 ## Setup
 
@@ -21,6 +21,22 @@ personal dotfiles management using [GNU Stow](https://www.gnu.org/software/stow/
 - mpd includes the configuration for `mpd` and `ncmpcpp`
 - xorg has the configuration for the touchpad
 - all the other modules are self explanatory
+
+## Dependencies
+
+- i3
+  - i3-gaps
+  - i3bar
+  - i3blocks
+  - rofi
+  - ttf-hack
+  - ttf-font-awesome
+  - compton
+  - dunst
+  - feh
+  - xautolock
+  - xbindkeys
+  - curl
 
 ## Screenshot
 ![rice#1](https://github.com/alexfaria/dotfiles/blob/master/scrots/rice%231.png?raw=true)

@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    c:
+      default_beautifier: "clang-format"
   core:
     autoHideMenuBar: true
     ignoredNames: [
@@ -10,17 +13,31 @@
       "Thumbs.db"
       "desktop.ini"
       ".stfolder"
+      ".pioenvs"
+      ".piolibdeps"
+      ".clang_complete"
+      ".gcc-flags.json"
     ]
     telemetryConsent: "no"
   editor:
     fontFamily: "Hack"
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
+    tabLength: 4
   "exception-reporting":
     userId: "bcc7b6c5-5583-423e-9526-ea5693aab25a"
+  "file-icons":
+    coloured: false
   linter:
     lintOnChange: false
   "linter-shellcheck": {}
+  "linter-ui-default":
+    useBusySignal: false
+  "tool-bar":
+    position: "Left"
+  "tree-view":
+    hideIgnoredNames: true
   welcome:
     showOnStartup: false
