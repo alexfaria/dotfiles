@@ -24,6 +24,8 @@ Personal dotfiles management using [GNU Stow](https://www.gnu.org/software/stow/
 
 ## Dependencies
 
+- [GNU Stow](https://www.gnu.org/software/stow/)
+
 - i3
   - i3-gaps
   - i3bar
