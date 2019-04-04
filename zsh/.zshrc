@@ -13,14 +13,11 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compose npm)
+plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compose npm autojump)
 
 # User configuration
 
-# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-export PATH="$HOME/.gem/ruby/2.4.0/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin/:$HOME/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
