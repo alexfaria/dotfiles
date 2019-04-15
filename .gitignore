@@ -5,6 +5,11 @@ atom/.atom/*
 !atom/.atom/styles.less
 !atom/.atom/keymap.cson
 
+fish/.config/fish/*
+!fish/.config/fish/fishfile
+!fish/.config/fish/config.fish
+!fish/.config/fish/git.fish
+
 vim/.vim/*
 !vim/.vim/.vimrc
 
