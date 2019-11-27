@@ -20,6 +20,14 @@ alias ls 'ls -FG'
 # fish greeting
 
 function fish_greeting
-    fortune -s | lolcat
+   date | lolcat
 end
 funcsave fish_greeting
+
+# path
+set -gx PATH $PATH ~/.local/bin
+
+# source conda
+if test -f /opt/anaconda/etc/fish/conf.d/conda.fish
+    source /opt/anaconda/etc/fish/conf.d/conda.fish
+end
