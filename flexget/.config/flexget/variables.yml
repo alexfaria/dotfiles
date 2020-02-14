@@ -1,0 +1,10 @@
+trakt:
+  account: username
+  list: current
+  # list: Watch List
+
+flexget_folder: /media/videos
+
+opensubtitles:
+  username: username
+  password: password

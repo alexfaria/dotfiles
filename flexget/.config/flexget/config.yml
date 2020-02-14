@@ -1,0 +1,78 @@
+variables: variables.yml
+templates:
+  tv:
+    configure_series:
+      settings:
+        # Configure all the series options to your taste
+        # quality: 720p+
+        quality: 1080p
+        path: '{? flexget_folder ?}/{{series_name}}/Season {{series_season}}/'  # This will sort your downloads if you are using one of the output plugins which supports it
+        identified_by: ep
+      from:
+        trakt_list:
+          # https://flexget.com/Plugins/List/trakt_list
+          account: '{? trakt.account ?}'
+          list: '{? trakt.list ?}'
+          type: shows
+
+tasks:
+  get-shows:
+    priority: 2
+    template: tv
+    discover:
+      what:
+        - next_series_episodes:
+            from_start: yes
+      from:
+        - 1337x: yes
+        - piratebay: yes
+        - rarbg:
+            category:
+              - x264 720p
+              - x264 1080p
+    transmission:
+      magnetization_timeout: 10
+      main_file_only: yes
+      include_subs: yes
+      # main_file_ratio: 0.60
+      # content_filename: "{{ series_name }}.{{ series_season }}x{{ series_episode }}"
+      # rename_like_files: yes
+      skip_files:
+      - '*.nfo'
+      - '*.sfv'
+      - '*.jpg'
+      - '*[sS]ample*'
+      - '*[sS]creens'
+      - '*.txt'
+
+  sync-trakt:
+    priority: 1
+    next_trakt_episodes:
+      account: '{? trakt.account ?}'
+      context: watched
+      list: '{? trakt.list ?}'
+    accept_all: yes
+    set_series_begin: yes
+
+  get-subtitles:
+    manual: yes
+    filesystem:
+      path:
+        - '{? flexget_folder ?}'
+      regexp: '.*\.(avi|mkv|mp4)$'
+      recursive: yes
+    accept_all: yes
+    seen: local
+    subliminal:
+      languages:
+        - eng
+      alternatives:
+        - eng
+      exact_match: yes
+      #only use the following providers
+      # providers: [opensubtitles, tvsubtitles]
+      single: no
+      authentication:
+        opensubtitles:
+          username: '{? opensubtitles.username ?}'
+          password: '{? opensubtitles.password ?}'
