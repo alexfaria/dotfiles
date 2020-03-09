@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.  export ZSH=/home/alex/.oh-my-zsh
 export TERM="xterm-256color"
-export EDITOR="nvim"
+export EDITOR="vim"
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$HOME/.oh-my-zsh
 
@@ -13,23 +13,16 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git extract archlinux sudo zsh-syntax-highlighting docker docker-compose npm autojump)
+plugins=(sudo git extract archlinux zsh-syntax-highlighting npm autojump zsh-autosuggestions history-substring-search zsh-completions)
 
 # User configuration
 
-export PATH="$HOME/.local/bin/:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -52,6 +45,4 @@ alias relpav="pacmd unload-module module-udev-detect && pacmd load-module module
 
 alias sv="source $HOME/.zshrc"
 
-# if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then
-#   exec startx
-# fi
+# [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh

@@ -6,6 +6,7 @@
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = /home/alex/.config/git/ignore
+	filemode = false
 [push]
 	default = matching
 [color]

@@ -28,3 +28,7 @@ nvim/.config/nvim/*
 
 mpd/.config/mpd/*
 !mpd/.config/mpd/mpd.conf
+
+mpv/.config/mpv/*
+!mpv/.config/mpv/input.conf
+!mpv/.config/mpv/mpv.conf
