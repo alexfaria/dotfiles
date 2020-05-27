@@ -44,5 +44,5 @@ alias pacexpac="expac -H M \"%011m\t%-20n\t%10d\" \$(comm -23 <(pacman -Qqen | s
 alias relpav="pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect; pulseaudio -k; sleep 1; pulseaudio --start"
 
 alias sv="source $HOME/.zshrc"
-
+[[ -f /opt/anaconda/etc/profile.d/conda.sh ]] && source /opt/anaconda/etc/profile.d/conda.sh
 # [[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
