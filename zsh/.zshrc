@@ -24,8 +24,21 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# global npm packages without root
+export NPM_PACKAGES="${HOME}/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# GOPATH
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
+# dont write .pyc files
+export PYTHONDONTWRITEBYTECODE=1
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
